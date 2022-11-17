@@ -1,0 +1,8 @@
+target/
+*.iml
+.idea/
+endpoint_proxy.properties
+/bin/
+endpoint_local.properties
+/.idea/
+/target/

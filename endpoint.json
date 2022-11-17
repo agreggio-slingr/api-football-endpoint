@@ -1,0 +1,55 @@
+{
+    "label": "ApiFootball",
+    "name": "apifootball",
+    "apiVersion": "v1",
+    "internal": true,
+    "configurationType": "GLOBAL",
+    "deployment": {
+        "profiles":[
+            {
+                "name": "default",
+                "label": "Default",
+                "memory": 256,
+                "description": "Default configuration"
+            }
+        ]
+    },
+    "icon48": "https://storage.googleapis.com/static.slingrs.io/platform/endpoints/sample.png",
+    "status": "ACTIVE",
+    "stores": [],
+    "events": [
+        {
+            "label": "Available Teams",
+            "name": "teams",
+            "description": "Event send for the endpoint each time that a POST request to the root path of the web service."
+        },
+        {
+            "label": "Available matches",
+            "name": "matches",
+            "description": "Callback event for the Ping function"
+        }
+    ],
+    "functions": [
+        {
+            "label": "Available Teams",
+            "name": "teams",
+            "description": "Get the list of available teams."
+        },
+        {
+            "label": "Available Matches",
+            "name": "matches",
+            "description": "Get the list of available matches."
+        }
+    ],
+    "scripts":[
+        "functions.js"
+    ],
+    "configuration":[
+        {
+            "name": "apiKey",
+            "label": "API Key",
+            "type": "text",
+            "required": true
+        }
+    ]
+}
