@@ -6,8 +6,6 @@
  * 'app.endpoints.endpointName'.
  */
 
-
-// this is shortcut of the 'ping' function
 endpoint.teams = {};
 endpoint.teams.get = function (reqObj) {
     return endpoint.get('/teams', reqObj);
