@@ -32,7 +32,7 @@
     "functions": [
         {
             "label": "Available Teams",
-            "name": "teams",
+            "name": "_teams",
             "description": "Get the list of available teams."
         },
         {

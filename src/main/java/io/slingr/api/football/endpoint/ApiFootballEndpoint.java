@@ -25,7 +25,7 @@ import java.util.concurrent.Semaphore;
 public class ApiFootballEndpoint extends HttpEndpoint {
     private static final Logger logger = LoggerFactory.getLogger(ApiFootballEndpoint.class);
 
-    private static String API_URL = "https://api.football-data.org//v4/competitions/WC";
+    private static String API_URL = "https://api.football-data.org/v4/competitions/WC";
 
     @ApplicationLogger
     private AppLogs appLogger;
@@ -46,11 +46,11 @@ public class ApiFootballEndpoint extends HttpEndpoint {
         this.httpService().setDefaultEmptyPath("");
         this.httpService().setupDefaultHeader("Accept", "application/json");
         this.httpService().setupDefaultHeader("Content-Type", "application/json");
-        this.httpService().setupDefaultHeader("X-Auth-Token", "apiKey");
+        this.httpService().setupDefaultHeader("X-Auth-Token", apiKey);
     }
 
 
-    @EndpointFunction(name = "teams")
+    @EndpointFunction(name = "_teams")
     public Json postRequest(FunctionRequest request) {
 
         Json req = request.getJsonParams();

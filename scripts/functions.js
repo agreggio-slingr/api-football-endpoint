@@ -8,5 +8,5 @@
 
 endpoint.teams = {};
 endpoint.teams.get = function (reqObj) {
-    return endpoint.get('/teams', reqObj);
+    return endpoint._teams('/teams', reqObj);
 };
