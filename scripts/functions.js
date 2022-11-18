@@ -10,3 +10,9 @@ endpoint.teams = {};
 endpoint.teams.get = function (reqObj) {
     return endpoint._teams('/teams', reqObj);
 };
+
+
+endpoint.test = {};
+endpoint.test.get = function (reqObj) {
+    return endpoint._test('test', reqObj);
+};

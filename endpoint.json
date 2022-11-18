@@ -37,7 +37,7 @@
         },
         {
             "label": "Available Matches",
-            "name": "matches",
+            "name": "_test",
             "description": "Get the list of available matches."
         }
     ],
