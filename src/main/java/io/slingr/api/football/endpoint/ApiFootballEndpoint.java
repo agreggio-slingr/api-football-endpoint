@@ -1,10 +1,17 @@
 package io.slingr.api.football.endpoint;
 
 import io.slingr.endpoints.HttpEndpoint;
+import io.slingr.endpoints.configurations.Configuration;
+import io.slingr.endpoints.exceptions.ErrorCode;
 import io.slingr.endpoints.framework.annotations.*;
 import io.slingr.endpoints.services.AppLogs;
 import io.slingr.endpoints.utils.Json;
+import io.slingr.endpoints.utils.Strings;
 import io.slingr.endpoints.ws.exchange.FunctionRequest;
+import io.slingr.endpoints.ws.exchange.WebServiceRequest;
+import io.slingr.endpoints.ws.exchange.WebServiceResponse;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.http.entity.ContentType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import io.slingr.endpoints.exceptions.EndpointException;
@@ -21,121 +28,109 @@ public class ApiFootballEndpoint extends HttpEndpoint {
 //    private static String API_URL = "https://api.football-data.org/v4/competitions/WC";
 
     @ApplicationLogger
-    private AppLogs appLogger;
+    private AppLogs appLogs;
 
     @EndpointProperty
-    private String authenticationMethod;
+    private String baseUrl;
 
-    @EndpointProperty
-    private String clientId;
-
-    @EndpointProperty
-    private String clientSecret;
-
-    @EndpointProperty
-    private String accessToken;
-
-    @EndpointProperty
-    private String refreshToken;
-
-    @EndpointProperty
-    private String apiKey;
-
-    @EndpointProperty
-    private String instanceUrl;
-
-    @EndpointProperty
-    private String webhooksSharedKey;
+    @EndpointConfiguration
+    private Json configuration;
 
     @Override
     public String getApiUri() {
-        return instanceUrl;
+        return StringUtils.isNotBlank(baseUrl) ? baseUrl : "";
     }
 
     @Override
     public void endpointStarted() {
-        httpService().setAllowExternalUrl(true);
-    }
-
-    public ApiFootballEndpoint() {
-    }
-
-
-    @EndpointFunction(name = "_get")
-    public Json get(FunctionRequest request) {
+        final String headers = configuration.string("defaultHeaders", "");
         try {
-            setRequestHeaders(request);
-            return defaultGetRequest(request);
-        } catch (EndpointException restException) {
-            if (restException.getHttpStatusCode() == 401) {
-                setRequestHeaders(request);
-                return defaultGetRequest(request);
-            } else {
-                throw restException;
-            }
+            final Json jHeaders = checkHeaders(headers);
+            jHeaders.forEachMapString(httpService()::setupDefaultHeader);
+        } catch (Exception ex){
+            appLogs.error(String.format("Invalid default headers defined for HTTP endpoint. Please check them [%s]", headers));
         }
-    }
 
-    @EndpointFunction(name = "_post")
-    public Json post(FunctionRequest request) {
-        try {
-            setRequestHeaders(request);
-            return defaultPostRequest(request);
-        } catch (EndpointException restException) {
-            if (restException.getHttpStatusCode() == 401) {
-                setRequestHeaders(request);
-                return defaultPostRequest(request);
-            } else {
-                throw restException;
-            }
-        }
-    }
+        httpService().setDefaultEmptyPath(configuration.string("emptyPath", ""));
 
+        httpService().setRememberCookies(Configuration.parseBooleanValue(configuration.string("rememberCookies"), false));
 
-    private void setRequestHeaders(FunctionRequest request) {
-        Json body = request.getJsonParams();
-        Json headers = body.json("headers");
-        if (headers == null) {
-            headers = Json.map();
-        }
-        if (authenticationMethod.equals("api    Key")) {
-            headers.set("Authorization", "API-Key " + apiKey);
+        if(StringUtils.isBlank(baseUrl)){
+            httpService().setAllowExternalUrl(true);
         } else {
-            headers.set("Authorization", "Bearer " + accessToken);
+            httpService().setAllowExternalUrl(Configuration.parseBooleanValue(configuration.string("allowExternalUrl"), false));
         }
-        headers.set("Content-Type", "application/json");
-        if (headers.isEmpty("Accept")) {
-            headers.set("Accept", "application/json");
+
+        httpService().setFollowRedirects(Configuration.parseBooleanValue(configuration.string("followRedirects"), true));
+        httpService().setConnectionTimeout(configuration.integer("connectionTimeout", 5000));
+        httpService().setReadTimeout(configuration.integer("readTimeout", 60000));
+
+        final String authType = configuration.string("authType", "");
+
+        if(StringUtils.isNotBlank(authType)) {
+            final String username = configuration.string("username", "");
+            final String password = configuration.string("password", "");
+
+            if ("basic".equalsIgnoreCase(authType)) {
+                httpService().setupBasicAuthentication(username, password);
+
+                logger.info(String.format("Configured HTTP Basic authentication: username [%s] - password [%s]", username, Strings.maskToken(password)));
+            } else if ("digest".equalsIgnoreCase(authType)) {
+                httpService().setupDigestAuthentication(username, password);
+
+                logger.info(String.format("Configured HTTP Digest authentication: username [%s] - password [%s]", username, Strings.maskToken(password)));
+            } else if ("apiToken".equalsIgnoreCase(authType)) {
+
+                final String key = configuration.string("key", "");
+                final String value = configuration.string("value", "");
+
+                httpService().setupDefaultHeader(key, value);
+
+                logger.info(String.format("Configured HTTP Api Token authentication: Api Token [%s] ", key));
+            } else {
+                logger.info("Configured without HTTP authentication");
+            }
         }
-        body.set("headers", headers);
+
+        logger.info(String.format("Configured HTTP endpoint: baseUrl [%s]", baseUrl));
     }
 
 
-//    @EndpointFunction(name = "_teams")
-//    public Json getRequest(FunctionRequest request) {
-//
-//        Json req = request.getJsonParams();
-//        String path = req.string("path");
-//        logger.debug(String.format("[GET] request to %s", path));
-//
-//        return httpService().defaultGetRequest(req);
-//
-//    }
+    /**
+     * Converts the string headers representation in a Json map object
+     *
+     * @param stringHeaders string headers list
+     * @return json map object
+     */
+    private static Json checkHeaders(String stringHeaders) {
+        final Json headers = Json.map();
+        try {
+            if (StringUtils.isNotBlank(stringHeaders)){
+                final String[] pairs = StringUtils.split(stringHeaders, ",");
+                for (String pair : pairs) {
+                    final String[] keyValue = StringUtils.split(pair, "=");
 
+                    headers.set(keyValue[0].trim(), keyValue.length > 1 ? keyValue[1].trim() : true);
+                }
+            }
+        } catch (Exception e) {
+            throw EndpointException.permanent(ErrorCode.ARGUMENT, String.format("Default headers [%s] are invalid", stringHeaders));
+        }
+        return headers;
+    }
 
-//    @EndpointFunction(name = "_test")
-//    public Json postTest(FunctionRequest request) {
-//
-//        Json req = request.getJsonParams();
-//
-//        String text = req.string("text");
-//
-//        logger.debug(String.format("[GET] request to %s", text));
-//
-//        return req;
-//
-//    }
-
-
+    @EndpointWebService(path = "/sync")
+    public WebServiceResponse optionsLoad(WebServiceRequest request) {
+        try {
+            Json body = request.getJsonBody();
+            Json options = (Json) events().sendSync("webhookSync", body);
+            return new WebServiceResponse(options, ContentType.APPLICATION_JSON.toString());
+        } catch (ClassCastException cce) {
+            appLogs.error("The response to the sync webhook from the listener is not a valid JSON");
+        } catch (Exception e) {
+            appLogs.error("There was an error processing sync webhook: " + e.getMessage(), e);
+        }
+        return new WebServiceResponse(Json.map(), ContentType.APPLICATION_JSON.toString());
+    }
 
 }
