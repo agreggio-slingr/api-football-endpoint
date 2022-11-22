@@ -17,37 +17,43 @@
     "icon48": "https://storage.googleapis.com/static.slingrs.io/platform/endpoints/sample.png",
     "status": "ACTIVE",
     "stores": [],
-    "events": [
-        {
-            "label": "Available Teams",
-            "name": "teams",
-            "description": "Event send for the endpoint each time that a POST request to the root path of the web service."
-        },
-        {
-            "label": "Available matches",
-            "name": "matches",
-            "description": "Callback event for the Ping function"
-        }
-    ],
+    "events": [],
     "functions": [
         {
-            "label": "Available Teams",
-            "name": "_teams",
-            "description": "Get the list of available teams."
+            "label": "GET",
+            "name": "_get"
         },
         {
-            "label": "Available Matches",
-            "name": "_test",
-            "description": "Get the list of available matches."
+            "label": "POST",
+            "name": "_post"
+        },
+        {
+            "label": "PATCH",
+            "name": "_patch"
+        },
+        {
+            "label": "PUT",
+            "name": "_put"
+        },
+        {
+            "label": "DELETE",
+            "name": "_delete"
         }
     ],
     "scripts":[
-        "functions.js"
+        "http-generic-helpers.js"
     ],
     "configuration":[
         {
             "name": "apiKey",
             "label": "API Key",
+            "type": "text",
+            "required": true
+        },
+        {
+            "name": "instanceUrl",
+            "label": "Instance URL",
+            "description": "Instance URL Value",
             "type": "text",
             "required": true
         }

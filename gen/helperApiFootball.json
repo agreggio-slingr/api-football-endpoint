@@ -1,0 +1,13 @@
+{
+  "fileName": "apiFootball",
+  "endpointName": "apifootball",
+  "omittableUrlParts": ["auth"],
+  "apiDescriptors": [
+    {
+      "prefix": "",
+      "suffix": "get",
+      "method": "GET",
+      "url": "/matches"
+    }
+  ]
+}
