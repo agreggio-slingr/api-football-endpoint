@@ -98,7 +98,7 @@ public class ApiFootballEndpoint extends HttpEndpoint {
         if (headers == null) {
             headers = Json.map();
         }
-        if (authenticationMethod.equals("apiKey")) {
+        if (authenticationMethod.equals("api    Key")) {
             headers.set("Authorization", "API-Key " + apiKey);
         } else {
             headers.set("Authorization", "Bearer " + accessToken);
