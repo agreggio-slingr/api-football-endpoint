@@ -79,7 +79,7 @@
         }
     ],
     "scripts":[
-        "functions.js"
+        "http-generic-helpers.js"
     ],
     "configuration":[
         {
