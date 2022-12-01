@@ -5,7 +5,11 @@
  */
 step.get = function (url) {
 
+    var data = endpoint.get(url) ;
+
+    sys.logs.debug('[apifootball] GET from: ' + data);
+
     return {
-        "response": endpoint.get(url)
+        "response": data['text']
     };
 };
