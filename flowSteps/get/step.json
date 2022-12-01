@@ -1,0 +1,24 @@
+{
+  "label": "GET",
+  "name": "get",
+  "category": "generic",
+  "description": "Sends a GET request",
+  "inputs": [
+    {
+      "label": "Url",
+      "name": "url",
+      "type": "text",
+      "description": "This is used to set a external URL",
+      "required": "true",
+      "defaultValue": "https://www.slingr.io/"
+    }
+  ],
+  "outputs": [
+    {
+      "label": "Response",
+      "name":  "response",
+      "type": "text",
+      "description": "The response to external URL"
+    }
+  ]
+}
