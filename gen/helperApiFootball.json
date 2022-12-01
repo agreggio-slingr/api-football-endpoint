@@ -5,7 +5,7 @@
   "apiDescriptors": [
     {
       "prefix": "",
-      "suffix": "get",
+      "suffix": "",
       "method": "GET",
       "url": "/matches"
     }

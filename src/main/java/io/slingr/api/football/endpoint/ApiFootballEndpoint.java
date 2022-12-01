@@ -16,12 +16,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import io.slingr.endpoints.exceptions.EndpointException;
 
+import java.util.Random;
+
 /**
  * <p>Sample endpoint
  *
  * <p>Created by lefunes on 01/12/16.
  */
-@SlingrEndpoint(name = "apifootball", functionPrefix = "_")
+@SlingrEndpoint(name = "apifootball")
 public class ApiFootballEndpoint extends HttpEndpoint {
     private static final Logger logger = LoggerFactory.getLogger(ApiFootballEndpoint.class);
 
@@ -131,6 +133,22 @@ public class ApiFootballEndpoint extends HttpEndpoint {
             appLogs.error("There was an error processing sync webhook: " + e.getMessage(), e);
         }
         return new WebServiceResponse(Json.map(), ContentType.APPLICATION_JSON.toString());
+    }
+
+    @EndpointFunction(name = "randomNumber")
+    public Json generateRandomNumber(Json data) {
+        if (data == null) {
+            data = Json.map();
+        }
+
+        Random random = new Random();
+
+        // generate random number
+        int bound = !data.isEmpty("bound") ? data.integer("bound") : 10000;
+        data.set("number", random.nextInt(bound));
+
+        logger.info(String.format("Function RANDOM NUMBER: [%s]", data.toString()));
+        return data;
     }
 
 }

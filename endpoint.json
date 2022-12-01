@@ -76,10 +76,18 @@
             "label": "OPTIONS",
             "name": "_options",
             "description": "Sends a OPTIONS request"
+        },
+        {
+            "label": "Random number generator",
+            "name": "randomNumber",
+            "description": "Generates a random integer"
         }
     ],
     "scripts":[
         "http-generic-helpers.js"
+    ],
+    "flowSteps":  [
+        "numberGenerator"
     ],
     "configuration":[
         {
