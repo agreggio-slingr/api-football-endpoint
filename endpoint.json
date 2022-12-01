@@ -88,7 +88,7 @@
         "apiFootball.js"
     ],
     "flowSteps":  [
-        "numberGenerator"
+        "get"
     ],
     "configuration":[
         {
