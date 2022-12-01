@@ -3,9 +3,9 @@
  *
  * @param {text} bound, This is used to get a random number between 0 (inclusive) and the number passed in this argument, exclusive.
  */
-step.get = function (url, httpOptions, callbackData, callbacks) {
+step.get = function (url) {
 
-    var data = endpoint.get(url, httpOptions, callbackData, callbacks) ;
+    var data = endpoint.get(url) ;
     return {
         "get": data['text']
     };
