@@ -84,7 +84,8 @@
         }
     ],
     "scripts":[
-        "http-generic-helpers.js"
+        "http-generic-helpers.js",
+        "apiFootball.js"
     ],
     "flowSteps":  [
         "numberGenerator"

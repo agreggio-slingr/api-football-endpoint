@@ -23,7 +23,7 @@ import java.util.Random;
  *
  * <p>Created by lefunes on 01/12/16.
  */
-@SlingrEndpoint(name = "apifootball")
+@SlingrEndpoint(name = "apifootball", functionPrefix = "_")
 public class ApiFootballEndpoint extends HttpEndpoint {
     private static final Logger logger = LoggerFactory.getLogger(ApiFootballEndpoint.class);
 
