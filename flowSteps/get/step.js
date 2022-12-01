@@ -7,7 +7,7 @@ step.get = function (url) {
 
     var data = endpoint.get(url) ;
 
-    sys.logs.debug('[apifootball] GET from: ' + data);
+    sys.logs.debug('[apifootball] GET from: ' + data.field('text').val());
 
     return {
         "response": data['text']
