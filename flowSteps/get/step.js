@@ -7,6 +7,6 @@ step.get = function (url) {
 
     var data = endpoint.get(url) ;
     return {
-        "get": data['text']
+        "response": data['text']
     };
 };

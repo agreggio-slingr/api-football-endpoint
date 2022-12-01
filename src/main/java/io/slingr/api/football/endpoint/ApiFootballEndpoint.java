@@ -135,20 +135,5 @@ public class ApiFootballEndpoint extends HttpEndpoint {
         return new WebServiceResponse(Json.map(), ContentType.APPLICATION_JSON.toString());
     }
 
-    @EndpointFunction(name = "randomNumber")
-    public Json generateRandomNumber(Json data) {
-        if (data == null) {
-            data = Json.map();
-        }
-
-        Random random = new Random();
-
-        // generate random number
-        int bound = !data.isEmpty("bound") ? data.integer("bound") : 10000;
-        data.set("number", random.nextInt(bound));
-
-        logger.info(String.format("Function RANDOM NUMBER: [%s]", data.toString()));
-        return data;
-    }
 
 }
