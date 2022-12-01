@@ -6,11 +6,11 @@
 step.get = function (url) {
     var data = endpoint.get(url) ;
 
-    sys.logs.debug('[Test] GET from: ' + data.toJSON());
+    sys.logs.info('[Test] GET from: ' + data.toJSON());
 
-    sys.logs.debug('[Test] GET from: ' + data);
+    sys.logs.info('[Test] GET from: ' + data);
 
-    sys.logs.debug('[Test] GET from: ' + data['text']);
+    sys.logs.info('[Test] GET from: ' + data['text']);
 
     return {
         "response": data['text']
