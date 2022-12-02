@@ -1,8 +1,8 @@
 {
-	"label": "get",
-	"name": "get",
+	"label": "trace",
+	"name": "trace",
 	"category": "integrations",
-	"description": "Sends get request",
+	"description": "Sends trace request",
 	"inputs": [
 		{
 			"label": "Url",
@@ -16,18 +16,6 @@
 			"name": "body",
 			"type": "text",
 			"description": "This is used to set body request"
-		},
-		{
-			"label": "CallbackData",
-			"name": "callbackData",
-			"type": "text",
-			"description": "This is used to set CallbackData"
-		},
-		{
-			"label": "Callbacks",
-			"name": "callbacks",
-			"type": "text",
-			"description": "This is used to set callbacks"
 		}
 	],
 	"outputs": [

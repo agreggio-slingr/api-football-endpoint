@@ -1,8 +1,8 @@
 {
-	"label": "get",
-	"name": "get",
+	"label": "post",
+	"name": "post",
 	"category": "integrations",
-	"description": "Sends get request",
+	"description": "Sends post request",
 	"inputs": [
 		{
 			"label": "Url",

@@ -1,8 +1,8 @@
 {
-	"label": "get",
-	"name": "get",
+	"label": "patch",
+	"name": "patch",
 	"category": "integrations",
-	"description": "Sends get request",
+	"description": "Sends patch request",
 	"inputs": [
 		{
 			"label": "Url",

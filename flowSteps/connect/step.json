@@ -1,8 +1,8 @@
 {
-	"label": "get",
-	"name": "get",
+	"label": "connect",
+	"name": "connect",
 	"category": "integrations",
-	"description": "Sends get request",
+	"description": "Sends connect request",
 	"inputs": [
 		{
 			"label": "Url",

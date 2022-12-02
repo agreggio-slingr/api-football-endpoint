@@ -1,8 +1,8 @@
 {
-	"label": "get",
-	"name": "get",
+	"label": "delete",
+	"name": "delete",
 	"category": "integrations",
-	"description": "Sends get request",
+	"description": "Sends delete request",
 	"inputs": [
 		{
 			"label": "Url",
