@@ -8,9 +8,6 @@
 			"label": "Method",
 			"name": "method",
 			"type": "choice",
-			"description": "Select method",
-			"defaultValue": "get",
-			"required": "true",
 			"options": {
 				"possibleValues": [
 					{
@@ -48,6 +45,28 @@
 					{
 						"label": "Trace",
 						"name": "trace"
+					}
+				],
+				"allowContextSelector": "false"
+			}
+		},
+		{
+			"label": "Expression Type",
+			"name": "expressionType",
+			"type": "choice",
+			"options": {
+				"possibleValues": [
+					{
+						"label": "Current User",
+						"name": "CURRENT_USER"
+					},
+					{
+						"label": "Field Value",
+						"name": "FIELD_VALUE"
+					},
+					{
+						"label": "Dynamic object",
+						"name": "DYNAMIC_OBJECT"
 					}
 				],
 				"allowContextSelector": "false"
