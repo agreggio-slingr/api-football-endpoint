@@ -1,14 +1,14 @@
 {
-	"label": "get",
-	"name": "get",
+	"label": "generic",
+	"name": "generic",
 	"category": "integrations",
-	"description": "Sends get request",
+	"description": "Sends generic request",
 	"inputs": [
 		{
 			"label": "Method",
 			"name": "method",
 			"type": "choice",
-			"description": "In case of grid or workflow views define the view type to redirect.",
+			"description": "Select method",
 			"defaultValue": "get",
 			"required": "true",
 			"options": {
