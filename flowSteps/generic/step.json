@@ -8,6 +8,8 @@
 			"label": "Method",
 			"name": "method",
 			"type": "choice",
+			"description": "Select method",
+			"defaultValue": "get",
 			"required": "true",
 			"options": {
 				"possibleValues": [
@@ -65,8 +67,8 @@
 			"label": "Body",
 			"name": "body",
 			"type": "text",
-			"required": "config.method === 'post' || config.method === 'put' || config.method === 'patch'",
-			"visibility": "config.method === 'post' || config.method === 'put' || config.method === 'patch'",
+			"required": "['post', 'put', 'patch'].includes(config.method)",
+			"visibility": "['post', 'put', 'patch'].includes(config.method)",
 			"description": "This is used to set body request",
 			"options": {
 				"allowContextSelector": "false"
