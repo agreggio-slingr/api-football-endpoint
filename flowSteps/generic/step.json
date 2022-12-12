@@ -11,6 +11,7 @@
 			"description": "Select method",
 			"defaultValue": "get",
 			"required": "true",
+			"allowContextSelector": "false",
 			"options": {
 				"possibleValues": [
 					{
@@ -57,24 +58,30 @@
 			"name": "url",
 			"type": "text",
 			"description": "This is used to set a external URL",
+			"allowContextSelector": "false",
 			"required": "true"
 		},
 		{
 			"label": "Body",
 			"name": "body",
 			"type": "text",
+			"allowContextSelector": "false",
+			"required": "['post', 'put', 'patch'].includes(config.method)",
+			"visibility": "['post', 'put', 'patch'].includes(config.method)",
 			"description": "This is used to set body request"
 		},
 		{
 			"label": "CallbackData",
 			"name": "callbackData",
 			"type": "text",
+			"allowContextSelector": "false",
 			"description": "This is used to set CallbackData"
 		},
 		{
 			"label": "Callbacks",
 			"name": "callbacks",
 			"type": "text",
+			"allowContextSelector": "false",
 			"description": "This is used to set callbacks"
 		}
 	],
