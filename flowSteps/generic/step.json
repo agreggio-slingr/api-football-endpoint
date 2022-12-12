@@ -8,6 +8,9 @@
 			"label": "Method",
 			"name": "method",
 			"type": "choice",
+			"description": "Select method",
+			"required": "true",
+			"visibility": "true",
 			"options": {
 				"possibleValues": [
 					{
@@ -51,28 +54,6 @@
 			}
 		},
 		{
-			"label": "Expression Type",
-			"name": "expressionType",
-			"type": "choice",
-			"options": {
-				"possibleValues": [
-					{
-						"label": "Current User",
-						"name": "CURRENT_USER"
-					},
-					{
-						"label": "Field Value",
-						"name": "FIELD_VALUE"
-					},
-					{
-						"label": "Dynamic object",
-						"name": "DYNAMIC_OBJECT"
-					}
-				],
-				"allowContextSelector": "false"
-			}
-		},
-		{
 			"label": "Url",
 			"name": "url",
 			"type": "text",
@@ -86,8 +67,8 @@
 			"label": "Body",
 			"name": "body",
 			"type": "text",
-			"required": "['post', 'put', 'patch'].includes(config.method)",
-			"visibility": "['post', 'put', 'patch'].includes(config.method)",
+			"required": "config.method && ['post', 'put', 'patch'].includes(config.method)",
+			"visibility": "config.method && ['post', 'put', 'patch'].includes(config.method)",
 			"description": "This is used to set body request",
 			"options": {
 				"allowContextSelector": "false"
