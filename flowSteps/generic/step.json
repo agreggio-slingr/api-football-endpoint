@@ -75,10 +75,22 @@
 			}
 		},
 		{
+			"label": "Required call back",
+			"name": "requiredCallBack",
+			"type": "boolean",
+			"description": "True if required call back",
+			"defaultValue": false,
+			"options": {
+				"allowContextSelector": "false"
+			}
+		},
+		{
 			"label": "CallbackData",
 			"name": "callbackData",
 			"type": "text",
 			"description": "This is used to set CallbackData",
+			"required": "requiredCallBack === true",
+			"visibility": "requiredCallBack === true",
 			"options": {
 				"allowContextSelector": "false"
 			}
@@ -88,6 +100,8 @@
 			"name": "callbacks",
 			"type": "text",
 			"description": "This is used to set callbacks",
+			"required": "requiredCallBack === true",
+			"visibility": "requiredCallBack === true",
 			"options": {
 				"allowContextSelector": "false"
 			}
