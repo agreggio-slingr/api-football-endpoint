@@ -76,9 +76,9 @@
 		},
 		{
 			"label": "Required call back",
-			"name": "config.requiredCallBack",
+			"name": "requiredCallBack",
 			"type": "boolean",
-			"description": "True if required call back",
+			"description": "If true it will return call back",
 			"defaultValue": false,
 			"options": {
 				"allowContextSelector": "false"
@@ -89,8 +89,7 @@
 			"name": "callbackData",
 			"type": "text",
 			"description": "This is used to set CallbackData",
-			"required": "config.requiredCallBack === true",
-			"visibility": "config.requiredCallBack === true",
+			"visibility": "config.requiredCallBack",
 			"options": {
 				"allowContextSelector": "false"
 			}
@@ -100,7 +99,6 @@
 			"name": "callbacks",
 			"type": "text",
 			"description": "This is used to set callbacks",
-			"required": "config.requiredCallBack",
 			"visibility": "config.requiredCallBack",
 			"options": {
 				"allowContextSelector": "false"
