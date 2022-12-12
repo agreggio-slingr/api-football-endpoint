@@ -56,31 +56,31 @@
 			"name": "url",
 			"type": "text",
 			"description": "This is used to set a external URL",
-			"allowContextSelector": "false",
-			"required": "true"
+			"required": "true",
+			"allowContextSelector": "false"
 		},
 		{
 			"label": "Body",
 			"name": "body",
 			"type": "text",
-			"allowContextSelector": "false",
 			"required": "['post', 'put', 'patch'].includes(config.method)",
 			"visibility": "['post', 'put', 'patch'].includes(config.method)",
-			"description": "This is used to set body request"
+			"description": "This is used to set body request",
+			"allowContextSelector": "false"
 		},
 		{
 			"label": "CallbackData",
 			"name": "callbackData",
 			"type": "text",
-			"allowContextSelector": "false",
-			"description": "This is used to set CallbackData"
+			"description": "This is used to set CallbackData",
+			"allowContextSelector": "false"
 		},
 		{
 			"label": "Callbacks",
 			"name": "callbacks",
 			"type": "text",
-			"allowContextSelector": "false",
-			"description": "This is used to set callbacks"
+			"description": "This is used to set callbacks",
+			"allowContextSelector": "false"
 		}
 	],
 	"outputs": [
