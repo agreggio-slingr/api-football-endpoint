@@ -8,10 +8,7 @@
 			"label": "Method",
 			"name": "method",
 			"type": "choice",
-			"description": "Select method",
-			"defaultValue": "get",
 			"required": "true",
-			"allowContextSelector": "false",
 			"options": {
 				"possibleValues": [
 					{
@@ -24,7 +21,7 @@
 					},
 					{
 						"label": "Put",
-						"name": "pud"
+						"name": "put"
 					},
 					{
 						"label": "Delete",
@@ -50,7 +47,8 @@
 						"label": "Trace",
 						"name": "trace"
 					}
-				]
+				],
+				"allowContextSelector": "false"
 			}
 		},
 		{
