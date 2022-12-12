@@ -11,7 +11,7 @@ step.generic = function (method, url, body, callbackData, callbacks) {
 
 	let options = checkHttpOptions(url, httpOptions);
 
-	sys.logs.debug('[pandadoc.step.generic.]' + method + 'from: ' + url);
+	sys.logs.debug('[pandadoc.step.generic]' + method + 'from: ' + url);
 	
 	switch (method) {
 		case 'get':
