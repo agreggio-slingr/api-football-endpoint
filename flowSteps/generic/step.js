@@ -9,22 +9,32 @@
  */
 step.generic = function (method, url, body, callbackData, callbacks) {
 
+	let options = checkHttpOptions(url, httpOptions);
+
+	sys.logs.debug('[pandadoc.step.generic.]' + method + 'from: ' + url);
+	
 	switch (method) {
 		case 'get':
-			console.log('the season is get')
-			return endpoint.get(url, body, callbackData, callbacks);
+			return endpoint._get(options, callbackData, callbacks);
 		case 'post':
-			console.log('the season is post')
-			break;
+			return endpoint._post(options, callbackData, callbacks);
 		case 'delete':
-			console.log('the season is delete')
-			break;
+			return endpoint._delete(options, callbackData, callbacks);
 		case 'put':
-			console.log('the season is put')
-			break;
+			return endpoint._put(options, callbackData, callbacks);
+		case 'connect':
+			return endpoint._connect(options, callbackData, callbacks);
+		case 'head':
+			return endpoint._head(options, callbackData, callbacks);
+		case 'options':
+			return endpoint._options(options, callbackData, callbacks);
+		case 'patch':
+			return endpoint._patch(options, callbackData, callbacks);
+		case 'trace':
+			return endpoint._trace(options, callbackData, callbacks);
 		default:
-			console.log('season not defined')
-			return endpoint.get(url, body, callbackData, callbacks);
+			sys.logs.error('Invalid method received.');
+			break;
 	}
 
 }

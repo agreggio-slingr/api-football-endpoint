@@ -28,6 +28,26 @@
 					{
 						"label": "Delete",
 						"name": "delete"
+					},
+					{
+						"label": "Connect",
+						"name": "connect"
+					},
+					{
+						"label": "Head",
+						"name": "head"
+					},
+					{
+						"label": "Options",
+						"name": "options"
+					},
+					{
+						"label": "Patch",
+						"name": "patch"
+					},
+					{
+						"label": "Trace",
+						"name": "trace"
 					}
 				]
 			}
