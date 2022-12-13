@@ -7,7 +7,7 @@
 		{
 			"label": "Method",
 			"name": "method",
-			"type": "choice",
+			"type": "dropDown",
 			"description": "Select method",
 			"defaultValue": "get",
 			"required": "true",

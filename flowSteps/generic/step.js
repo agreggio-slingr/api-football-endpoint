@@ -9,7 +9,7 @@
  */
 step.generic = function (method, url, body, callbackData, callbacks) {
 
-	let options = checkHttpOptions(url, httpOptions);
+	let options = checkHttpOptions(url, body);
 
 	sys.logs.debug('[pandadoc.step.generic]' + method + 'from: ' + url);
 	
