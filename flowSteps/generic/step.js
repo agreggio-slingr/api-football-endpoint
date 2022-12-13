@@ -1,18 +1,19 @@
- /**
- * Sends get request.
+/**
+ * This flow step will send generic request.
  *
- * @param {text} method, This is used to config external URL.
- * @param {text} url, This is used to config external URL.
+ * @param {text} method, This is used to config method.
+ * @param {text} baseUrl, This is used to config external URL.
+ * @param {text} headers, This is used to config headers.
  * @param {text} body, This is used to send body request.
- * @param {text} callbackData, This is used to send callbackData.
+ * @param {text} callbackData, This is used to send callback data.
  * @param {text} callbacks, This is used to send callbacks.
  */
-step.generic = function (method, url, body, callbackData, callbacks) {
+step.generic = function (method, baseUrl,headers, body, callbackData, callbacks) {
 
-	let options = checkHttpOptions(url, body);
+	let options = checkHttpOptions(baseUrl, body, headers);
 
-	sys.logs.debug('[pandadoc.step.generic]' + method + 'from: ' + url);
-	
+	sys.logs.debug('[pandadoc.step.generic]' + method + 'from: ' + baseUrl);
+
 	switch (method) {
 		case 'get':
 			return endpoint._get(options, callbackData, callbacks);
@@ -38,3 +39,32 @@ step.generic = function (method, url, body, callbackData, callbacks) {
 	}
 
 }
+
+var checkHttpOptions = function (url, options, headers) {
+	options = options || {};
+	if (!!url) {
+		if (isObject(url)) {
+			// take the 'url' parameter as the options
+			options = url || {};
+		} else {
+			if (!!options.path || !!options.params || !!options.body) {
+				// options contains the http package format
+				options.path = url;
+			} else {
+				// create html package
+				options = {
+					path: url,
+					body: options,
+					header:headers
+				}
+			}
+		}
+	}
+	return options;
+};
+
+var isObject = function (obj) {
+	return !!obj && stringType(obj) === '[object Object]'
+};
+
+var stringType = Function.prototype.call.bind(Object.prototype.toString);

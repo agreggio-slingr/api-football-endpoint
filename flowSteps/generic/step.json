@@ -2,7 +2,7 @@
 	"label": "generic",
 	"name": "generic",
 	"category": "integrations",
-	"description": "Sends generic request",
+	"description": "This flow step will send generic request",
 	"inputs": [
 		{
 			"label": "Method",
@@ -54,13 +54,25 @@
 			}
 		},
 		{
-			"label": "Url",
-			"name": "url",
+			"name": "baseUrl",
+			"label": "Base URL",
+			"description": "The base URL where this endpoint will send request to. Add path variables in Url if required",
 			"type": "text",
-			"description": "This is used to set a external URL",
 			"required": "true",
 			"options": {
 				"allowContextSelector": "false"
+			}
+		},
+		{
+			"name": "Headers",
+			"label": "headers",
+			"description": "These headers will be added to all requests. The headers are comma-separated and have the 'key=value' form, per example: key=ABC123,client=456789",
+			"type": "text",
+			"typeOptions": {
+				"validation": {
+					"function": "!config.headers || utils.isPlaceholder(config.defaultHeaders) || config.headers.includes(',') || config.headers.includes('=')",
+					"message": "The headers are comma-separated and have the 'key=value' form, per example: key=ABC123,client=456789. The field admits valid placeholders too."
+				}
 			}
 		},
 		{
@@ -88,7 +100,7 @@
 			"label": "CallbackData",
 			"name": "callbackData",
 			"type": "text",
-			"description": "This is used to set CallbackData",
+			"description": "This is used to set callback data",
 			"visibility": "config.requiredCallBack",
 			"options": {
 				"allowContextSelector": "false"
