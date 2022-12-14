@@ -3,16 +3,15 @@
  *
  * @param {text} method, This is used to config method.
  * @param {text} baseUrl, This is used to config external URL.
- * @param {text} headers, This is used to config headers.
  * @param {text} body, This is used to send body request.
  * @param {text} callbackData, This is used to send callback data.
  * @param {text} callbacks, This is used to send callbacks.
  */
-step.generic = function (method, baseUrl,headers, body, callbackData, callbacks) {
+step.generic = function (method, baseUrl, body, callbackData, callbacks) {
+
+	sys.logs.debug('[api-football.step.generic]' + method + 'from: ' + baseUrl);
 
 	let options = checkHttpOptions(baseUrl, body, headers);
-
-	sys.logs.debug('[pandadoc.step.generic]' + method + 'from: ' + baseUrl);
 
 	switch (method) {
 		case 'get':
