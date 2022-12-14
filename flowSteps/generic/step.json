@@ -4,12 +4,54 @@
 	"category": "integrations",
 	"description": "This flow step will send generic request",
 	"inputs": [
+
 		{
 			"name": "baseUrl",
 			"label": "Base URL",
 			"description": "The base URL where this endpoint will send request to. Add path variables in Url if required",
 			"type": "text",
 			"required": "true",
+			"options": {
+				"allowContextSelector": "false"
+			}
+		},
+		{
+			"label": "Body",
+			"name": "body",
+			"type": "text",
+			"required": "['post', 'put', 'patch'].includes(config.method)",
+			"visibility": "['post', 'put', 'patch'].includes(config.method)",
+			"description": "This is used to set body request",
+			"options": {
+				"allowContextSelector": "false"
+			}
+		},
+		{
+			"label": "Required call back",
+			"name": "requiredCallBack",
+			"type": "boolean",
+			"description": "If true it will return call back",
+			"defaultValue": false,
+			"options": {
+				"allowContextSelector": "false"
+			}
+		},
+		{
+			"label": "CallbackData",
+			"name": "callbackData",
+			"type": "text",
+			"description": "This is used to set callback data",
+			"visibility": "config.requiredCallBack",
+			"options": {
+				"allowContextSelector": "false"
+			}
+		},
+		{
+			"label": "Callbacks",
+			"name": "callbacks",
+			"type": "text",
+			"description": "This is used to set callbacks",
+			"visibility": "config.requiredCallBack",
 			"options": {
 				"allowContextSelector": "false"
 			}
