@@ -40,7 +40,7 @@
         {
             "label": "GET",
             "name": "_get",
-            "description": "Sends a GET request test",
+            "description": "Sends a GET request",
             "callbacks": [
                 {
                     "name": "fileDownloaded"
@@ -81,6 +81,9 @@
     "scripts":[
         "http-generic-helpers.js",
         "apiFootball.js"
+    ],
+    "flowSteps":  [
+        "generic"
     ],
     "configuration":[
         {
