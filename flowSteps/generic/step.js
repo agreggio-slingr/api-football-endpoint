@@ -7,13 +7,11 @@
  * @param {text} callbackData, This is used to send callback data.
  * @param {text} callbacks, This is used to send callbacks.
  */
-step.generic = function (method, baseUrl, body, callbackData, callbacks) {
+step.generic = function (baseUrl) {
 
-	sys.logs.debug('[api-football.step.generic]' + method + 'from: ' + baseUrl);
+	sys.logs.debug('[api-football.step.generic]' + baseUrl);
 
-	let options = checkHttpOptions(baseUrl, body, headers);
-
-	return "Respuesta";
+	return baseUrl;
 
 	// switch (method) {
 	// 	case 'get':
