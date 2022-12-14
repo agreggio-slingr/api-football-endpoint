@@ -9,7 +9,7 @@
  */
 step.generic = function (baseUrl) {
 
-	sys.logs.debug('[api-football.step.generic]' + baseUrl);
+	sys.logs.error('[api-football.step.generic]' + baseUrl);
 
 	return baseUrl;
 
