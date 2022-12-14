@@ -4,7 +4,55 @@
 	"category": "integrations",
 	"description": "This flow step will send generic request",
 	"inputs": [
-
+		{
+			"label": "Method",
+			"name": "method",
+			"type": "dropDown",
+			"description": "Select method",
+			"defaultValue": "get",
+			"required": "true",
+			"options": {
+				"possibleValues": [
+					{
+						"label": "Get",
+						"name": "get"
+					},
+					{
+						"label": "Post",
+						"name": "post"
+					},
+					{
+						"label": "Put",
+						"name": "put"
+					},
+					{
+						"label": "Delete",
+						"name": "delete"
+					},
+					{
+						"label": "Connect",
+						"name": "connect"
+					},
+					{
+						"label": "Head",
+						"name": "head"
+					},
+					{
+						"label": "Options",
+						"name": "options"
+					},
+					{
+						"label": "Patch",
+						"name": "patch"
+					},
+					{
+						"label": "Trace",
+						"name": "trace"
+					}
+				],
+				"allowContextSelector": "false"
+			}
+		},
 		{
 			"name": "baseUrl",
 			"label": "Base URL",
