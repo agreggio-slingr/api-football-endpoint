@@ -1,13 +1,16 @@
 /**
  * This flow step will send generic request.
  *
+ * @param {text} method, This is used to config method.
  * @param {text} baseUrl, This is used to config external URL.
+ * @param {text} body, This is used to send body request.
+ * @param {text} callbackData, This is used to send callback data.
+ * @param {text} callbacks, This is used to send callbacks.
  */
-step.generic = function (baseUrl) {
+step.generic = function (method, baseUrl, body, callbackData, callbacks) {
 
-	sys.logs.error('[api-football.step.generic]' + baseUrl);
+	sys.logs.error('[api-football.step.generic]' + method + 'from: ' + baseUrl);
 
-	return baseUrl;
 
 	// switch (method) {
 	// 	case 'get':
@@ -34,32 +37,3 @@ step.generic = function (baseUrl) {
 	// }
 
 }
-
-var checkHttpOptions = function (url, options, headers) {
-	options = options || {};
-	if (!!url) {
-		if (isObject(url)) {
-			// take the 'url' parameter as the options
-			options = url || {};
-		} else {
-			if (!!options.path || !!options.params || !!options.body) {
-				// options contains the http package format
-				options.path = url;
-			} else {
-				// create html package
-				options = {
-					path: url,
-					body: options,
-					header:headers
-				}
-			}
-		}
-	}
-	return options;
-};
-
-var isObject = function (obj) {
-	return !!obj && stringType(obj) === '[object Object]'
-};
-
-var stringType = Function.prototype.call.bind(Object.prototype.toString);
