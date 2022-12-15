@@ -2,7 +2,7 @@
  * This flow step will send generic request.
  *
  * @param {text} method, This is used to config method.
- * @param {text} path, This is used to config external URL.
+ * @param {object} path, This is used to config external URL.
  * @param {text} headers, This is used to config external URL.
  * @param {text} params, This is used to config external URL.
  * @param {text} body, This is used to send body request.
@@ -11,15 +11,15 @@
  */
 step.generic = function (method, path, headers,params, body, callbackData, callbacks) {
 
+    body = body || {};
 
-    let option = {
+    body = {
         path: path,
-        body: body,
         headers:headers,
         params:params
     };
 
-    return "Mensaje";
+    return body;
 
     // switch (method) {
     // 	case 'get':
