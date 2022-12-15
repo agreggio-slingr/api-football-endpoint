@@ -19,30 +19,29 @@ step.generic = function (method, path, headers,params, body, callbackData, callb
         params:params
     };
 
-    return body;
 
-    // switch (method) {
-    // 	case 'get':
-    // 		return endpoint._get(options, callbackData, callbacks);
-    // 	case 'post':
-    // 		return endpoint._post(options, callbackData, callbacks);
-    // 	case 'delete':
-    // 		return endpoint._delete(options, callbackData, callbacks);
-    // 	case 'put':
-    // 		return endpoint._put(options, callbackData, callbacks);
-    // 	case 'connect':
-    // 		return endpoint._connect(options, callbackData, callbacks);
-    // 	case 'head':
-    // 		return endpoint._head(options, callbackData, callbacks);
-    // 	case 'options':
-    // 		return endpoint._options(options, callbackData, callbacks);
-    // 	case 'patch':
-    // 		return endpoint._patch(options, callbackData, callbacks);
-    // 	case 'trace':
-    // 		return endpoint._trace(options, callbackData, callbacks);
-    // 	default:
-    // 		sys.logs.error('Invalid method received.');
-    //         return null;
-    // }
+    switch (method) {
+    	case 'get':
+    		return endpoint._get(body, callbackData, callbacks);
+    	case 'post':
+    		return endpoint._post(body, callbackData, callbacks);
+    	case 'delete':
+    		return endpoint._delete(body, callbackData, callbacks);
+    	case 'put':
+    		return endpoint._put(body, callbackData, callbacks);
+    	case 'connect':
+    		return endpoint._connect(body, callbackData, callbacks);
+    	case 'head':
+    		return endpoint._head(body, callbackData, callbacks);
+    	case 'options':
+    		return endpoint._options(body, callbackData, callbacks);
+    	case 'patch':
+    		return endpoint._patch(body, callbackData, callbacks);
+    	case 'trace':
+    		return endpoint._trace(body, callbackData, callbacks);
+    	default:
+    		sys.logs.error('Invalid method received.');
+            return null;
+    }
 
 };
