@@ -22,23 +22,23 @@ step.generic = function (method, path, headers,params, body, callbackData, callb
 
     switch (method) {
     	case 'get':
-    		return endpoint._get(body, callbackData, callbacks);
+    		return endpoint.get(path, body, callbackData, callbacks);
     	case 'post':
-    		return endpoint._post(body, callbackData, callbacks);
+    		return endpoint.post(path, body, callbackData, callbacks);
     	case 'delete':
-    		return endpoint._delete(body, callbackData, callbacks);
+    		return endpoint.delete(path, body, callbackData, callbacks);
     	case 'put':
-    		return endpoint._put(body, callbackData, callbacks);
+    		return endpoint.put(path, body, callbackData, callbacks);
     	case 'connect':
-    		return endpoint._connect(body, callbackData, callbacks);
+    		return endpoint.connect(path, body, callbackData, callbacks);
     	case 'head':
-    		return endpoint._head(body, callbackData, callbacks);
+    		return endpoint.head(path, body, callbackData, callbacks);
     	case 'options':
-    		return endpoint._options(body, callbackData, callbacks);
+    		return endpoint.options(path, body, callbackData, callbacks);
     	case 'patch':
-    		return endpoint._patch(body, callbackData, callbacks);
+    		return endpoint.patch(path, body, callbackData, callbacks);
     	case 'trace':
-    		return endpoint._trace(body, callbackData, callbacks);
+    		return endpoint.trace(path, body, callbackData, callbacks);
     	default:
     		sys.logs.error('Invalid method received.');
             return null;
