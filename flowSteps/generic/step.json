@@ -1,13 +1,13 @@
 {
 	"label": "generic",
 	"name": "generic",
-	"category": "integrations",
+	"category": "data",
 	"description": "This flow step will send generic request",
 	"inputs": [
 		{
 			"label": "Method",
 			"name": "method",
-			"type": "dropDown",
+			"type": "choice",
 			"description": "Select method",
 			"defaultValue": "get",
 			"required": "true",
@@ -59,6 +59,36 @@
 			"description": "The base URL where this endpoint will send request to. Add path variables in Url if required",
 			"type": "text",
 			"required": "true",
+			"options": {
+				"allowContextSelector": "false"
+			}
+		},
+		{
+			"name": "Headers",
+			"label": "headers",
+			"description": "These headers will be added to all requests. The headers are comma-separated and have the 'key=value' form, per example: key=ABC123,client=456789",
+			"type": "text",
+			"typeOptions": {
+				"validation": {
+					"function": "!config.headers || utils.isPlaceholder(config.headers) || config.headers.includes(',') || config.headers.includes('=')",
+					"message": "The headers are comma-separated and have the 'key=value' form, per example: key=ABC123,client=456789. The field admits valid placeholders too."
+				}
+			},
+			"options": {
+				"allowContextSelector": "false"
+			}
+		},
+		{
+			"name": "Params",
+			"label": "params",
+			"description": "These headers will be added to all requests. The headers are comma-separated and have the 'key=value' form, per example: key=ABC123,client=456789",
+			"type": "text",
+			"typeOptions": {
+				"validation": {
+					"function": "!config.params || utils.isPlaceholder(config.params) || config.params.includes(',') || config.params.includes('=')",
+					"message": "The params are comma-separated and have the 'key=value' form, per example: key=ABC123,client=456789. The field admits valid placeholders too."
+				}
+			},
 			"options": {
 				"allowContextSelector": "false"
 			}
