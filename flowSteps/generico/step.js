@@ -9,17 +9,17 @@
  * @param {text} callbackData, This is used to send callback data.
  * @param {text} callbacks, This is used to send callbacks.
  */
-step.generico = function (method, path,headers,params, body, callbackData, callbacks) {
+step.generico = function (method, path, headers,params, body, callbackData, callbacks) {
 
-    let options = {
-        path: path,
-        body: body,
-        headers:headers,
-        params:params
-    };
+    // let options = {
+    //     path: path,
+    //     body: body,
+    //     headers:headers,
+    //     params:params
+    // };
 
 
-    return ('Resultado Option: ' + options);
+    return ('Resultado method: ' + method);
 
     // switch (method) {
     // 	case 'get':
