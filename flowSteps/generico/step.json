@@ -1,6 +1,6 @@
 {
-	"label": "generic",
-	"name": "generic",
+	"label": "generico",
+	"name": "generico",
 	"category": "integrations",
 	"description": "This flow step will send generic request",
 	"inputs": [
