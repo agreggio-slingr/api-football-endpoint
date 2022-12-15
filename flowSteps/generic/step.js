@@ -11,15 +11,15 @@
  */
 step.generic = function (method, path, headers,params, body, callbackData, callbacks) {
 
-    // let options = {
-    //     path: path,
-    //     body: body,
-    //     headers:headers,
-    //     params:params
-    // };
 
+    let option = {
+        path: path,
+        body: body,
+        headers:headers,
+        params:params
+    };
 
-    return ('Resultado method: ' + method);
+    return "Mensaje";
 
     // switch (method) {
     // 	case 'get':
