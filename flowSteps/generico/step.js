@@ -11,8 +11,6 @@
  */
 step.generico = function (method, path,headers,params, body, callbackData, callbacks) {
 
-	sys.logs.error('Entro en la funcion.');
-
     let options = {
         path: path,
         body: body,
@@ -20,7 +18,6 @@ step.generico = function (method, path,headers,params, body, callbackData, callb
         params:params
     };
 
-	sys.logs.error('Resultado Option: ' + options);
 
     return ('Resultado Option: ' + options);
 
