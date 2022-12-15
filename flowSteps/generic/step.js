@@ -22,6 +22,8 @@ step.generic = function (method, path,headers,params, body, callbackData, callba
 
 	sys.logs.error('Resultado Option: ' + options);
 
+    return ('Resultado Option: ' + options);
+
     // switch (method) {
     // 	case 'get':
     // 		return endpoint._get(options, callbackData, callbacks);
