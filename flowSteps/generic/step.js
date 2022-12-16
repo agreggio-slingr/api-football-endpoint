@@ -11,8 +11,6 @@
  */
 step.generic = function (method, path, headers,params, body, callbackData, callbacks) {
 
-    body = body || {};
-
     body = {
         path: path,
         headers:headers,
