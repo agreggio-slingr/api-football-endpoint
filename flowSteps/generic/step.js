@@ -38,6 +38,8 @@ step.generic = function (method, path, headers,params, body, callbackData, callb
     		return endpoint.patch(path, body, callbackData, callbacks);
     	case 'trace':
     		return endpoint.trace(path, body, callbackData, callbacks);
+		case 'SUM':
+			return endpoint.sum(firstOperand, secondOperand);
     	default:
             return null;
     }
