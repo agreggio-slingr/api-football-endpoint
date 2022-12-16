@@ -11,35 +11,33 @@
  */
 step.generic = function (method, path, headers,params, body, callbackData, callbacks) {
 
-    // body = body || {};
-	//
-    // body = {
-    //     path: path,
-    //     headers:headers,
-    //     params:params
-    // };
+    body = body || {};
+
+    body = {
+        path: path,
+        headers:headers,
+        params:params
+    };
 
     switch (method) {
     	case 'get':
-    		return app.endpoints.apifootball.get(path, body, callbackData, callbacks);
+    		return app.endpoints.apifootball._get(body, callbackData, callbacks);
     	case 'post':
-    		return app.endpoints.apifootball.post(path, body, callbackData, callbacks);
+    		return app.endpoints.apifootball._post(body, callbackData, callbacks);
     	case 'delete':
-    		return app.endpoints.apifootball.delete(path, body, callbackData, callbacks);
+    		return app.endpoints.apifootball._delete(body, callbackData, callbacks);
     	case 'put':
-    		return app.endpoints.apifootball.put(path, body, callbackData, callbacks);
+    		return app.endpoints.apifootball._put(body, callbackData, callbacks);
     	// case 'connect':
-    	// 	return app.endpoints.apifootball.connect(path, body, callbackData, callbacks);
+    	// 	return app.endpoints.apifootball._connect(body, callbackData, callbacks);
     	case 'head':
-    		return app.endpoints.apifootball.head(path, body, callbackData, callbacks);
+    		return app.endpoints.apifootball._head(body, callbackData, callbacks);
     	case 'options':
-    		return app.endpoints.apifootball.options(path, body, callbackData, callbacks);
+    		return app.endpoints.apifootball._options(body, callbackData, callbacks);
     	case 'patch':
-    		return app.endpoints.apifootball.patch(path, body, callbackData, callbacks);
+    		return app.endpoints.apifootball._patch(body, callbackData, callbacks);
     	case 'trace':
-    		return app.endpoints.apifootball.trace(path, body, callbackData, callbacks);
-		case 'SUM':
-			return app.endpoints.apifootball.sum(1, 2);
+    		return app.endpoints.apifootball._trace(body, callbackData, callbacks);
     	default:
             return null;
     }

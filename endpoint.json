@@ -80,8 +80,7 @@
     ],
     "scripts":[
         "http-generic-helpers.js",
-        "apiFootball.js",
-        "other.js"
+        "apiFootball.js"
     ],
     "flowSteps":  [
         "generic"
