@@ -21,23 +21,23 @@ step.generic = function (method, path, headers,params, body, callbackData, callb
 
     switch (method) {
     	case 'get':
-    		return app.endpoints.apifootball._get(body, callbackData, callbacks);
+    		return endpoint._get(body, callbackData, callbacks);
     	case 'post':
-    		return app.endpoints.apifootball._post(body, callbackData, callbacks);
+    		return endpoint._post(body, callbackData, callbacks);
     	case 'delete':
-    		return app.endpoints.apifootball._delete(body, callbackData, callbacks);
+    		return endpoint._delete(body, callbackData, callbacks);
     	case 'put':
-    		return app.endpoints.apifootball._put(body, callbackData, callbacks);
-    	// case 'connect':
-    	// 	return app.endpoints.apifootball._connect(body, callbackData, callbacks);
+    		return endpoint._put(body, callbackData, callbacks);
+    	case 'connect':
+    		return endpoint._connect(body, callbackData, callbacks);
     	case 'head':
-    		return app.endpoints.apifootball._head(body, callbackData, callbacks);
+    		return endpoint._head(body, callbackData, callbacks);
     	case 'options':
-    		return app.endpoints.apifootball._options(body, callbackData, callbacks);
+    		return endpoint._options(body, callbackData, callbacks);
     	case 'patch':
-    		return app.endpoints.apifootball._patch(body, callbackData, callbacks);
+    		return endpoint._patch(body, callbackData, callbacks);
     	case 'trace':
-    		return app.endpoints.apifootball._trace(body, callbackData, callbacks);
+    		return endpoint._trace(body, callbackData, callbacks);
     	default:
             return null;
     }
