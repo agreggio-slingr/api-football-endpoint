@@ -11,15 +11,15 @@
  */
 step.generic = function (method, path, headers,params, body, callbackData, callbacks) {
 
-	sys.logs.debug('[apifootball] body from: ' + body);
+	sys.logs.error('[apifootball] body from: ' + body);
 
 	let obj = JSON.parse(body);
 
-	sys.logs.debug('[apifootball] obj from: ' + obj);
+	sys.logs.error('[apifootball] obj from: ' + obj);
 
 	let options = checkHttpOption(path, obj);
 
-	sys.logs.debug('[apifootball] options from: ' + options);
+	sys.logs.error('[apifootball] options from: ' + options);
 
     switch (method) {
     	case 'get':
