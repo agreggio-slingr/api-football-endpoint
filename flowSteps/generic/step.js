@@ -9,21 +9,20 @@
  * @param {text} callbackData, This is used to send callback data.
  * @param {text} callbacks, This is used to send callbacks.
  */
-step.generic = function (method, path, headers,params, body, callbackData, callbacks) {
+step.generic = function (method, path, headers, params, body, callbackData, callbacks) {
 
 	sys.logs.error('[apifootball] body from: ' + body);
 
-	let obj = JSON.parse(body);
-
-	sys.logs.error('[apifootball] obj from: ' + obj);
-
-	let options = checkHttpOption(path, obj);
-
-	sys.logs.error('[apifootball] options from: ' + options);
+	var options = {
+		path: path,
+		params:params,
+		headers:headers,
+		body: body
+	}
 
     switch (method) {
     	case 'get':
-    		return endpoint._get(options, callbackData, callbacks);
+    		return endpoint.get(options, callbackData, callbacks);
     	case 'post':
     		return endpoint._post(options, callbackData, callbacks);
     	case 'delete':
@@ -45,31 +44,3 @@ step.generic = function (method, path, headers,params, body, callbackData, callb
     }
 
 };
-
-var checkHttpOption = function (url, options) {
-	options = options || {};
-	if (!!url) {
-		if (isObject(url)) {
-			// take the 'url' parameter as the options
-			options = url || {};
-		} else {
-			if (!!options.path || !!options.params || !!options.body) {
-				// options contains the http package format
-				options.path = url;
-			} else {
-				// create html package
-				options = {
-					path: url,
-					body: options
-				}
-			}
-		}
-	}
-	return options;
-};
-
-let isObject = function (obj) {
-	return !!obj && stringType(obj) === '[object Object]'
-};
-
-let stringType = Function.prototype.call.bind(Object.prototype.toString);
