@@ -22,7 +22,7 @@ step.generic = function (method, path, headers,params, body, callbackData, callb
     	case 'get':
     		return endpoint._get(body, callbackData, callbacks);
     	case 'post':
-    		return endpoint.post(path, body, callbackData, callbacks);
+    		return endpoint.post(path, JSON.parse(body), callbackData, callbacks);
     	case 'delete':
     		return endpoint._delete(body, callbackData, callbacks);
     	case 'put':
