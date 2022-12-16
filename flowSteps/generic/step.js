@@ -39,7 +39,7 @@ step.generic = function (method, path, headers,params, body, callbackData, callb
     	case 'trace':
     		return endpoint.trace(path, body, callbackData, callbacks);
 		case 'SUM':
-			return endpoint.sum(firstOperand, secondOperand);
+			return endpoint.sum(1, 2);
     	default:
             return null;
     }
