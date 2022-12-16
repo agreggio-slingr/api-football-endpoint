@@ -8,7 +8,9 @@ endpoint.get = function(url, httpOptions, callbackData, callbacks) {
 };
 
 endpoint.post = function(url, httpOptions, callbackData, callbacks) {
+    sys.logs.error('[apifootball] httpOptions from: ' + httpOptions);
     options = checkHttpOptions(url, httpOptions);
+    sys.logs.error('[apifootball] options from: ' + options);
     return endpoint._post(options, callbackData, callbacks);
 };
 
