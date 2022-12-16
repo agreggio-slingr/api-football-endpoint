@@ -19,24 +19,25 @@ step.generic = function (method, path, headers,params, body, callbackData, callb
         params:params
     };
 
-
     switch (method) {
     	case 'get':
-    		return endpoint.get(path, body, callbackData, callbacks);
+    		return endpoint._get(body, callbackData, callbacks);
     	case 'post':
-    		return endpoint.post(path, body, callbackData, callbacks);
+    		return endpoint._post(body, callbackData, callbacks);
     	case 'delete':
-    		return endpoint.delete(path, body, callbackData, callbacks);
+    		return endpoint._delete(body, callbackData, callbacks);
     	case 'put':
-    		return endpoint.put(path, body, callbackData, callbacks);
+    		return endpoint._put(body, callbackData, callbacks);
+    	case 'connect':
+    		return endpoint._connect(body, callbackData, callbacks);
     	case 'head':
-    		return endpoint.head(path, body, callbackData, callbacks);
+    		return endpoint._head(body, callbackData, callbacks);
     	case 'options':
-    		return endpoint.options(path, body, callbackData, callbacks);
+    		return endpoint._options(body, callbackData, callbacks);
     	case 'patch':
-    		return endpoint.patch(path, body, callbackData, callbacks);
+    		return endpoint._patch(body, callbackData, callbacks);
     	case 'trace':
-    		return endpoint.trace(path, body, callbackData, callbacks);
+    		return endpoint._trace(body, callbackData, callbacks);
     	default:
             return null;
     }
