@@ -11,18 +11,18 @@
  */
 step.generic = function (method, path, headers,params, body, callbackData, callbacks) {
 
-    body = {
-        path: path,
-        headers:headers,
-        params:params,
-		body:body
-    };
+    // body = {
+    //     path: path,
+    //     headers:headers,
+    //     params:params,
+	// 	body:body
+    // };
 
     switch (method) {
     	case 'get':
     		return endpoint._get(body, callbackData, callbacks);
     	case 'post':
-    		return endpoint._post(body, callbackData, callbacks);
+    		return endpoint.post(path, body, callbackData, callbacks);
     	case 'delete':
     		return endpoint._delete(body, callbackData, callbacks);
     	case 'put':
