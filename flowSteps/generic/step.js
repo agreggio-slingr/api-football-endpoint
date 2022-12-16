@@ -5,13 +5,15 @@
  * @param {object} path, This is used to config external URL.
  * @param {text} headers, This is used to config external URL.
  * @param {text} params, This is used to config external URL.
- * @param {text} body, This is used to send body request.
+ * @param {object} body, This is used to send body request.
  * @param {text} callbackData, This is used to send callback data.
  * @param {text} callbacks, This is used to send callbacks.
  */
 step.generic = function (method, path, headers,params, body, callbackData, callbacks) {
 
-	var options = checkHttpOption(path, body);
+	const bodyAux= JSON.parse(body);
+
+	var options = checkHttpOption(path, bodyAux);
 
     switch (method) {
     	case 'get':
