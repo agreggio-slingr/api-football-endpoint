@@ -29,8 +29,6 @@ step.generic = function (method, path, headers,params, body, callbackData, callb
     		return endpoint.delete(path, body, callbackData, callbacks);
     	case 'put':
     		return endpoint.put(path, body, callbackData, callbacks);
-    	case 'connect':
-    		return endpoint.connect(path, body, callbackData, callbacks);
     	case 'head':
     		return endpoint.head(path, body, callbackData, callbacks);
     	case 'options':
@@ -40,7 +38,6 @@ step.generic = function (method, path, headers,params, body, callbackData, callb
     	case 'trace':
     		return endpoint.trace(path, body, callbackData, callbacks);
     	default:
-    		sys.logs.error('Invalid method received.');
             return null;
     }
 
