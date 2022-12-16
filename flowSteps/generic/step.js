@@ -11,33 +11,33 @@
  */
 step.generic = function (method, path, headers,params, body, callbackData, callbacks) {
 
-    body = body || {};
-
-    body = {
-        path: path,
-        headers:headers,
-        params:params
-    };
+    // body = body || {};
+	//
+    // body = {
+    //     path: path,
+    //     headers:headers,
+    //     params:params
+    // };
 
     switch (method) {
     	case 'get':
-    		return endpoint._get(body, callbackData, callbacks);
+    		return endpoint.get(body, callbackData, callbacks);
     	case 'post':
-    		return endpoint._post(body, callbackData, callbacks);
+    		return endpoint.post(body, callbackData, callbacks);
     	case 'delete':
-    		return endpoint._delete(body, callbackData, callbacks);
+    		return endpoint.delete(body, callbackData, callbacks);
     	case 'put':
-    		return endpoint._put(body, callbackData, callbacks);
-    	case 'connect':
-    		return endpoint._connect(body, callbackData, callbacks);
+    		return endpoint.put(body, callbackData, callbacks);
+    	// case 'connect':
+    	// 	return endpoint.connect(body, callbackData, callbacks);
     	case 'head':
-    		return endpoint._head(body, callbackData, callbacks);
+    		return endpoint.head(body, callbackData, callbacks);
     	case 'options':
-    		return endpoint._options(body, callbackData, callbacks);
+    		return endpoint.options(body, callbackData, callbacks);
     	case 'patch':
-    		return endpoint._patch(body, callbackData, callbacks);
+    		return endpoint.patch(body, callbackData, callbacks);
     	case 'trace':
-    		return endpoint._trace(body, callbackData, callbacks);
+    		return endpoint.trace(body, callbackData, callbacks);
     	default:
             return null;
     }
