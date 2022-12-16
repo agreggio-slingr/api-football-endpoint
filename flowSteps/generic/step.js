@@ -14,7 +14,8 @@ step.generic = function (method, path, headers,params, body, callbackData, callb
     body = {
         path: path,
         headers:headers,
-        params:params
+        params:params,
+		body:body
     };
 
     switch (method) {
