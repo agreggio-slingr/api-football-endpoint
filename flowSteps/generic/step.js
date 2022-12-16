@@ -5,15 +5,21 @@
  * @param {object} path, This is used to config external URL.
  * @param {text} headers, This is used to config external URL.
  * @param {text} params, This is used to config external URL.
- * @param {object} body, This is used to send body request.
+ * @param {string} body, This is used to send body request.
  * @param {text} callbackData, This is used to send callback data.
  * @param {text} callbacks, This is used to send callbacks.
  */
 step.generic = function (method, path, headers,params, body, callbackData, callbacks) {
 
-	const bodyAux= JSON.parse(body);
+	sys.logs.debug('[apifootball] body from: ' + body);
 
-	var options = checkHttpOption(path, bodyAux);
+	let obj = JSON.parse(body);
+
+	sys.logs.debug('[apifootball] obj from: ' + obj);
+
+	let options = checkHttpOption(path, obj);
+
+	sys.logs.debug('[apifootball] options from: ' + options);
 
     switch (method) {
     	case 'get':
@@ -62,8 +68,8 @@ var checkHttpOption = function (url, options) {
 	return options;
 };
 
-var isObject = function (obj) {
+let isObject = function (obj) {
 	return !!obj && stringType(obj) === '[object Object]'
 };
 
-var stringType = Function.prototype.call.bind(Object.prototype.toString);
+let stringType = Function.prototype.call.bind(Object.prototype.toString);
