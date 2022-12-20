@@ -8,10 +8,9 @@
 			"label": "Dropdown",
 			"name": "dropDown",
 			"type": "dropDown",
-			"multiplicity": "many",
+			"multiplicity": "one",
 			"defaultValue": [
-				"AZ",
-				"CA"
+				"AZ"
 			],
 			"typeOptions": {
 				"possibleValues": [
