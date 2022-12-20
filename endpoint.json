@@ -83,7 +83,7 @@
         "apiFootball.js"
     ],
     "flowSteps":  [
-        "generic"
+        "httpCall"
     ],
     "configuration":[
         {

@@ -1,32 +1,56 @@
 {
-	"label": "generic",
-	"name": "generic",
+	"label": "HTTP call",
+	"name": "httpCall",
 	"category": "integrations",
 	"description": "This flow step will send generic request",
 	"inputs": [
 		{
-			"label": "Dropdown",
-			"name": "dropDown",
-			"type": "dropDown",
-			"multiplicity": "one",
-			"defaultValue": [
-				"AZ"
-			],
-			"typeOptions": {
+			"label": "Method",
+			"name": "method",
+			"type": "choice",
+			"description": "Select method",
+			"defaultValue": "get",
+			"required": "true",
+			"options": {
 				"possibleValues": [
 					{
-						"label": "New York",
-						"name": "NY"
+						"label": "Get",
+						"name": "get"
 					},
 					{
-						"label": "Arizona",
-						"name": "AZ"
+						"label": "Post",
+						"name": "post"
 					},
 					{
-						"label": "California",
-						"name": "CA"
+						"label": "Put",
+						"name": "put"
+					},
+					{
+						"label": "Delete",
+						"name": "delete"
+					},
+					{
+						"label": "Connect",
+						"name": "connect"
+					},
+					{
+						"label": "Head",
+						"name": "head"
+					},
+					{
+						"label": "Options",
+						"name": "options"
+					},
+					{
+						"label": "Patch",
+						"name": "patch"
+					},
+					{
+						"label": "Trace",
+						"name": "trace"
 					}
-				]
+				],
+				"allowContextSelector": "false"
 			}
 		},
 		{
@@ -69,17 +93,17 @@
 			}
 		},
 		{
-			"label": "Required call back",
+			"label": "Requires callback",
 			"name": "requiredCallBack",
 			"type": "boolean",
-			"description": "If true it will return call back",
+			"description": "If true it will return callback",
 			"defaultValue": false,
 			"options": {
 				"allowContextSelector": "false"
 			}
 		},
 		{
-			"label": "CallbackData",
+			"label": "Callback data",
 			"name": "callbackData",
 			"type": "text",
 			"description": "This is used to set callback data",
