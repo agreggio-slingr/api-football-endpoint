@@ -3,8 +3,8 @@
  *
  * @param {text} method, This is used to config method.
  * @param {text} path, This is used to config external URL.
- * @param {text} headers, This is used to config external URL.
- * @param {text} params, This is used to config external URL.
+ * @param {string} headers, This is used to config external URL.
+ * @param {string} params, This is used to config external URL.
  * @param {string} body, This is used to send body request.
  * @param {text} callbackData, This is used to send callback data.
  * @param {text} callbacks, This is used to send callbacks.
@@ -14,6 +14,8 @@ step.generic = function (method, path, headers, params, body, callbackData, call
 	sys.logs.debug('[apifootball] path from: ' + path);
 
 	body = body ? JSON.parse(body) : null
+	headers = headers ? JSON.parse(headers) : null
+	params = params ? JSON.parse(params) : null
 
 	var options = {
 		path: path,
