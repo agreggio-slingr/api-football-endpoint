@@ -2,7 +2,7 @@
  * This flow step will send generic request.
  *
  * @param {text} method, This is used to config method.
- * @param {object} path, This is used to config external URL.
+ * @param {text} path, This is used to config external URL.
  * @param {text} headers, This is used to config external URL.
  * @param {text} params, This is used to config external URL.
  * @param {string} body, This is used to send body request.
