@@ -39,11 +39,11 @@
 
     <dependencies>
         <!-- Slingr Modules -->
-        <dependency>
-            <groupId>io.slingr.endpoints</groupId>
-            <artifactId>slingr-endpoints</artifactId>
-            <version>${slingr.slingr-endpoints.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>io.slingr.endpoints</groupId>-->
+<!--            <artifactId>slingr-endpoints</artifactId>-->
+<!--            <version>${slingr.slingr-endpoints.version}</version>-->
+<!--        </dependency>-->
 
         <!-- Testing Modules -->
         <dependency>
@@ -57,6 +57,11 @@
             <artifactId>mockito-all</artifactId>
             <version>${mockito.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.slingr.endpoints.archetypes</groupId>
+            <artifactId>api-football.endpoint</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

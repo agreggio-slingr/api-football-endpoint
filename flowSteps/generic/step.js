@@ -17,12 +17,12 @@ step.generic = function (method, path, headers, params, body, callbackData, call
 		path: path,
 		params:params,
 		headers:headers,
-		body: body
+		body: body ? JSON.parse(body) : null
 	}
 
     switch (method) {
     	case 'get':
-    		return endpoint.get(options, callbackData, callbacks);
+    		return endpoint._get(options, callbackData, callbacks);
     	case 'post':
     		return endpoint._post(options, callbackData, callbacks);
     	case 'delete':
