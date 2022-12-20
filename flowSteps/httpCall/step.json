@@ -7,10 +7,12 @@
 		{
 			"label": "Method",
 			"name": "method",
-			"type": "choice",
+			"type": "dropDown",
 			"description": "Select method",
-			"defaultValue": "get",
-			"required": "true",
+			"multiplicity": "one",
+			"defaultValue": [
+				"get"
+			],
 			"options": {
 				"possibleValues": [
 					{
