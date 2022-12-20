@@ -13,7 +13,7 @@ step.generic = function (method, path, headers, params, body, callbackData, call
 
 	sys.logs.debug('[api-football] '+ method + ' from: ' + path);
 
-	body = body ? JSON.parse(body) : {};
+	body = body ? JSON.parse(body) : null;
 
 	let options = {
 		path: path,
