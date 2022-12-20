@@ -11,7 +11,7 @@
  */
 step.generic = function (method, path, headers, params, body, callbackData, callbacks) {
 
-	sys.logs.error('[apifootball] body from: ' + body);
+	sys.logs.debug('[apifootball] path from: ' + path);
 
 	body = body ? JSON.parse(body) : null
 
