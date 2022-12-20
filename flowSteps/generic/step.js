@@ -9,9 +9,9 @@
  * @param {text} callbackData, This is used to send callback data.
  * @param {text} callbacks, This is used to send callbacks.
  */
-step.generic = function (method, path, headers, params, body, callbackData, callbacks) {
+step.generic = function (dropDown, path, headers, params, body, callbackData, callbacks) {
 
-	sys.logs.debug('[apifootball] path from: ' + path);
+	sys.logs.debug('[apifootball] path from: ' + dropDown);
 
 	body = body ? JSON.parse(body) : null
 	headers = headers ? JSON.parse(headers) : null

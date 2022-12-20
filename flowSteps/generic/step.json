@@ -5,56 +5,29 @@
 	"description": "This flow step will send generic request",
 	"inputs": [
 		{
-			"label": "Method",
-			"name": "method",
-			"type": "choice",
-			"description": "Select method",
-			"defaultValue": "get",
-			"required": "true",
-			"options": {
+			"label": "Dropdown",
+			"name": "dropDown",
+			"type": "dropDown",
+			"multiplicity": "many",
+			"defaultValue": [
+				"AZ",
+				"CA"
+			],
+			"typeOptions": {
 				"possibleValues": [
 					{
-						"label": "Sum",
-						"name": "SUM"
+						"label": "New York",
+						"name": "NY"
 					},
 					{
-						"label": "Get",
-						"name": "get"
+						"label": "Arizona",
+						"name": "AZ"
 					},
 					{
-						"label": "Post",
-						"name": "post"
-					},
-					{
-						"label": "Put",
-						"name": "put"
-					},
-					{
-						"label": "Delete",
-						"name": "delete"
-					},
-					{
-						"label": "Connect",
-						"name": "connect"
-					},
-					{
-						"label": "Head",
-						"name": "head"
-					},
-					{
-						"label": "Options",
-						"name": "options"
-					},
-					{
-						"label": "Patch",
-						"name": "patch"
-					},
-					{
-						"label": "Trace",
-						"name": "trace"
+						"label": "California",
+						"name": "CA"
 					}
-				],
-				"allowContextSelector": "false"
+				]
 			}
 		},
 		{
