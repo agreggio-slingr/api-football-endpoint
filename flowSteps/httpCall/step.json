@@ -68,8 +68,9 @@
 		{
 			"name": "Headers",
 			"label": "headers",
-			"description": "The headers are JSON format, per example: {\"key\"=\"ABC123\",\"client\"=\"456789\".",
+			"description": "The headers have the 'key=value' form, per example: key=ABC123",
 			"type": "text",
+			"multiplicity": "many",
 			"options": {
 				"allowContextSelector": "false"
 			}
@@ -77,8 +78,9 @@
 		{
 			"name": "Params",
 			"label": "params",
-			"description": "The params are JSON format, per example: {\"key\"=\"ABC123\",\"client\"=\"456789\".",
+			"description": "The params have the 'key=value' form, per example: key=ABC123",
 			"type": "text",
+			"multiplicity": "many",
 			"options": {
 				"allowContextSelector": "false"
 			}

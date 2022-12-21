@@ -13,8 +13,7 @@ step.httpCall = function (method, path, headers, params, body, callbackData, cal
 
 
 	body = isObject(body) ? body : JSON.parse(body);
-	headers = isObject(headers) ? headers : JSON.parse('{"' + headers.replace(/ /g, '", "').replace(/=/g, '": "') + '"}');
-	params = isObject(params) ? params : JSON.parse('{"' + params.replace(/ /g, '", "').replace(/=/g, '": "') + '"}');
+
 
 	var options = {
 		path: path,
