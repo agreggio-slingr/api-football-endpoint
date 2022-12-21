@@ -47,3 +47,9 @@ step.httpCall = function (method, path, headers, params, body, callbackData, cal
     }
 
 };
+
+var isObject = function (obj) {
+	return !!obj && stringType(obj) === '[object Object]'
+};
+
+var stringType = Function.prototype.call.bind(Object.prototype.toString);
