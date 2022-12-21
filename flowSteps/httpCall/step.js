@@ -11,20 +11,14 @@
  */
 step.httpCall = function (method, path, headers, params, body, callbackData, callbacks) {
 
-	var keyValue = headers.toString().split(',');
-
-	var headersObj = {};
-
-	for(var i = 0; i < keyValue.length; i++) {
-		headersObj[keyValue[i].split('=')[0]] = keyValue[i].split('=')[1]
-	}
-
+	headers = isObject(headers) ? headers : stringToObject(headers)
+	params = isObject(params) ? params : stringToObject(params)
 	body = isObject(body) ? body : JSON.parse(body);
 
 	var options = {
 		path: path,
 		params:params,
-		headers:headersObj,
+		headers:headers,
 		body: body
 	}
 
@@ -58,3 +52,12 @@ var isObject = function (obj) {
 };
 
 var stringType = Function.prototype.call.bind(Object.prototype.toString);
+
+var stringToObject = function (obj) {
+	var keyValue = obj.toString().split(',');
+	var parseObj = {};
+	for(var i = 0; i < keyValue.length; i++) {
+		parseObj[keyValue[i].split('=')[0]] = keyValue[i].split('=')[1]
+	}
+	return parseObj;
+};
