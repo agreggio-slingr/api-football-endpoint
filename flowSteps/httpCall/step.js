@@ -11,8 +11,18 @@
  */
 step.httpCall = function (method, path, headers, params, body, callbackData, callbacks) {
 
+	var words = headers.toString().split(',');
+
+	headers = '{';
+	for (var key in words) {
+		headers += '"'+ words[key].replace("=","\":\"") + '",\n';
+	}
+	headers += '}';
+
+	sys.logs.debug('[apifootball] GET from: ' + a);
 
 	body = isObject(body) ? body : JSON.parse(body);
+	headers = isObject(headers) ? headers : JSON.parse(headers);
 
 
 	var options = {
