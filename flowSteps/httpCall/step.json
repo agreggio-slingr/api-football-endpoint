@@ -86,7 +86,7 @@
 		{
 			"label": "Body",
 			"name": "body",
-			"type": "script",
+			"type": "json",
 			"required": "['post', 'put', 'patch'].includes(config.method)",
 			"visibility": "['post', 'put', 'patch'].includes(config.method)",
 			"description": "This is used to set body request",
@@ -129,7 +129,7 @@
 		{
 			"label": "Response",
 			"name": "response",
-			"type": "text",
+			"type": "object",
 			"description": "The response to external URL"
 		}
 	]
