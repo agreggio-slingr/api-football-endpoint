@@ -11,7 +11,8 @@
  */
 step.httpCall = function (method, path, headers, params, body, callbackData, callbacks) {
 
-	sys.logs.debug('[apifootball] path from: ' + path);
+	sys.logs.debug('[apifootball] path from: ' + body);
+	sys.logs.debug('[apifootball] path from: ' + JSON.parse(body));
 
 	body = body ? JSON.parse(body) : null
 	headers = headers ? JSON.parse(headers) : null
