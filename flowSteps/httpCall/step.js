@@ -19,11 +19,8 @@ step.httpCall = function (method, path, headers, params, body, callbackData, cal
 	}
 	headers += '}';
 
-	sys.logs.debug('[apifootball] GET from: ' + a);
-
 	body = isObject(body) ? body : JSON.parse(body);
 	headers = isObject(headers) ? headers : JSON.parse(headers);
-
 
 	var options = {
 		path: path,
