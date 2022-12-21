@@ -11,21 +11,20 @@
  */
 step.httpCall = function (method, path, headers, params, body, callbackData, callbacks) {
 
-	var words = headers.toString().split(',');
+	var keyValue = headers.toString().split(',');
 
-	headers = '{';
-	for (var key in words) {
-		headers += '"'+ words[key].replace("=","\":\"") + '",\n';
+	var headersObj = {};
+
+	for(var i = 0; i < keyValue.length; i++) {
+		headersObj[keyValue[i].split('=')[0]] = keyValue[i].split('=')[1]
 	}
-	headers += '}';
 
 	body = isObject(body) ? body : JSON.parse(body);
-	headers = isObject(headers) ? headers : JSON.parse(headers);
 
 	var options = {
 		path: path,
 		params:params,
-		headers:headers,
+		headers:headersObj,
 		body: body
 	}
 
