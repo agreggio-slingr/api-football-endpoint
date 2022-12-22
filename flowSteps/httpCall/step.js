@@ -54,13 +54,10 @@ var isObject = function (obj) {
 var stringType = Function.prototype.call.bind(Object.prototype.toString);
 
 var stringToObject = function (obj) {
-	if (!!obj){
-		var keyValue = obj.toString().split(',');
-		var parseObj = {};
-		for(var i = 0; i < keyValue.length; i++) {
-			parseObj[keyValue[i].split('=')[0]] = keyValue[i].split('=')[1]
-		}
-		return parseObj;
+	var keyValue = obj.toString().split(',');
+	var parseObj = {};
+	for(var i = 0; i < keyValue.length; i++) {
+		parseObj[keyValue[i].split('=')[0]] = keyValue[i].split('=')[1]
 	}
-		return null;
-}
+	return parseObj;
+};
