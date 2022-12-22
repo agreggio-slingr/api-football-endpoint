@@ -57,8 +57,8 @@ var stringToObject = function (obj) {
 	if (!!obj){
 		var keyValue = obj.toString().split(',');
 		var parseObj = {};
-		for(var i = 0; i < keyValue.length; i++) {
-			parseObj[keyValue[i].split('=')[0]] = keyValue[i].split('=')[1]
+		for(const property in keyValue) {
+			parseObj[keyValue[property].split('=')[0]] = keyValue[property].split('=')[1]
 		}
 		return parseObj;
 	}
