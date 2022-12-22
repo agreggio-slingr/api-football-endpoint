@@ -3,10 +3,10 @@
  *
  * @param {text} method, This is used to config method.
  * @param {text} url, This is used to config external URL.
- * @param {string} headers, This is used to config external URL.
- * @param {string} params, This is used to config external URL.
+ * @param {Array[string]} headers, This is used to config headers.
+ * @param {Array[string]} params, This is used to config params.
  * @param {string} body, This is used to send body request.
- * @param {text} callbackData, This is used to send callback data.
+ * @param {string} callbackData, This is used to send callback data.
  * @param {text} callbacks, This is used to send callbacks.
  * @param {boolean} followRedirects, This is used to config follow redirects.
  * @param {boolean} download, This is used to config download.
@@ -18,17 +18,16 @@ step.httpCall = function (method, url, headers, params, body, requiresCallBack,
 	headers = isObject(headers) ? headers : stringToObject(headers)
 	params = isObject(params) ? params : stringToObject(params)
 	body = isObject(body) ? body : JSON.parse(body);
+	callbackData = isObject(callbackData) ? body : JSON.parse(callbackData);
 
 	var options = {
 		path: url,
 		params:params,
 		headers:headers,
 		body: body,
-		settings : {
-			followRedirects : followRedirects,
-			download : download,
-			fullResponse : fullResponse
-		}
+		followRedirects : followRedirects,
+		download : download,
+		fullResponse : fullResponse
 	}
 
 	switch (method) {

@@ -109,8 +109,8 @@
 		{
 			"label": "Callback data",
 			"name": "callbackData",
-			"type": "text",
-			"description": "This is used to set callback data",
+			"type": "json",
+			"description": "This is an object you can send that you will get back when the callback is processed",
 			"required": "config.requiresCallBack",
 			"visibility": "config.requiresCallBack",
 			"options": {
@@ -120,13 +120,13 @@
 		{
 			"label": "Callbacks",
 			"name": "callbacks",
-			"type": "text",
-			"multiplicity": "many",
-			"description": "This is used to set callbacks",
+			"type": "script",
+			"description": "This is a map where you can listener for different callbacks",
 			"required": "config.requiresCallBack",
 			"visibility": "config.requiresCallBack",
 			"options": {
-				"allowContextSelector": "false"
+				"allowContextSelector": "false",
+				"parameters": ["event","data"]
 			}
 		},
 		{
