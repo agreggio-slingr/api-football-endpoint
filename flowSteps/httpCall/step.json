@@ -5,7 +5,7 @@
 	"description": "This flow step will send generic request",
 	"inputs": [
 		{
-			"label": "Method",
+			"label": "MethodS",
 			"name": "method",
 			"type": "dropDown",
 			"description": "Select method",
