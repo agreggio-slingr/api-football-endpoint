@@ -19,45 +19,48 @@
  */
 step.httpCall = function (stepConfig) {
 
-	var headers = isObject(stepConfig.inputs.headers) ? stepConfig.inputs.headers : stringToObject(stepConfig.inputs.headers)
-	var params = isObject(stepConfig.inputs.params) ? stepConfig.inputs.params : stringToObject(stepConfig.inputs.params)
-	var body = isObject(stepConfig.inputs.body) ? stepConfig.inputs.body : JSON.parse(stepConfig.inputs.body);
+	sys.logs.debug('[apifootball] GET from: ' + JSON.stringify(stepConfig));
 
-	var options = {
-		path: parse( stepConfig.inputs.url.value.urlValue, stepConfig.inputs.url.value.paramsValue),
-		params:params,
-		headers:headers,
-		body: body,
-		followRedirects : stepConfig.inputs.followRedirects,
-		download : stepConfig.inputs.download,
-		fullResponse : stepConfig.inputs.fullResponse,
-		connectionTimeout: stepConfig.inputs.connectionTimeout,
-		readTimeout: stepConfig.inputs.readTimeout
-	}
+	// var headers = isObject(stepConfig.inputs.headers) ? stepConfig.inputs.headers : stringToObject(stepConfig.inputs.headers)
+	// var params = isObject(stepConfig.inputs.params) ? stepConfig.inputs.params : stringToObject(stepConfig.inputs.params)
+	// var body = isObject(stepConfig.inputs.body) ? stepConfig.inputs.body : JSON.parse(stepConfig.inputs.body);
+	//
+	// var options = {
+	// 	path: parse( stepConfig.inputs.url.value.urlValue, stepConfig.inputs.url.value.paramsValue),
+	// 	params:params,
+	// 	headers:headers,
+	// 	body: body,
+	// 	followRedirects : stepConfig.inputs.followRedirects,
+	// 	download : stepConfig.inputs.download,
+	// 	fullResponse : stepConfig.inputs.fullResponse,
+	// 	connectionTimeout: stepConfig.inputs.connectionTimeout,
+	// 	readTimeout: stepConfig.inputs.readTimeout
+	// }
+	//
+	// switch (stepConfig.inputs.method) {
+	// 	case 'get':
+	// 		return endpoint._get(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+	// 	case 'post':
+	// 		return endpoint._post(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+	// 	case 'delete':
+	// 		return endpoint._delete(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+	// 	case 'put':
+	// 		return endpoint._put(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+	// 	case 'connect':
+	// 		return endpoint._connect(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+	// 	case 'head':
+	// 		return endpoint._head(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+	// 	case 'options':
+	// 		return endpoint._options(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+	// 	case 'patch':
+	// 		return endpoint._patch(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+	// 	case 'trace':
+	// 		return endpoint._trace(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+	// 	default:
+	// 		return null;
+	// }
 
-	switch (stepConfig.inputs.method) {
-		case 'get':
-			return endpoint._get(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
-		case 'post':
-			return endpoint._post(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
-		case 'delete':
-			return endpoint._delete(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
-		case 'put':
-			return endpoint._put(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
-		case 'connect':
-			return endpoint._connect(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
-		case 'head':
-			return endpoint._head(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
-		case 'options':
-			return endpoint._options(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
-		case 'patch':
-			return endpoint._patch(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
-		case 'trace':
-			return endpoint._trace(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
-		default:
-			return null;
-	}
-
+	return stepConfig;
 };
 
 var parse = function (url, pathVariables){
