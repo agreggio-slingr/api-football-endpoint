@@ -31,9 +31,9 @@
             "description": "Happens when a HTTP request hits the endpoint URL and needs a response from the listener. Must be a POST with content type application/json."
         },
         {
-            "label": "File Downloaded",
-            "name": "fileDownloaded",
-            "description": "Happens when a async download file process is finished (thrown by a GET function with 'forceDownload' enabled and 'downloadSync' disabled)"
+            "label": "Callback",
+            "name": "callback",
+            "description": "Use this event to callback"
         }
     ],
     "functions": [
@@ -43,7 +43,7 @@
             "description": "Sends a GET request",
             "callbacks": [
                 {
-                    "name": "fileDownloaded"
+                    "name": "callback"
                 }
             ]
         },
