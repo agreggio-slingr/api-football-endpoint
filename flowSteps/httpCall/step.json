@@ -149,6 +149,17 @@
 			}
 		},
 		{
+			"label": "Download Sync",
+			"name": "downloadSync",
+			"type": "boolean",
+			"description": "Determines if the HTTP resource will be downloaded",
+			"visibility": "config.overrideSettings",
+			"defaultValue": false,
+			"options": {
+				"allowContextSelector": "false"
+			}
+		},
+		{
 			"label": "Full Response",
 			"name": "fullResponse",
 			"type": "boolean",
