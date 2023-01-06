@@ -141,7 +141,7 @@
 			"label": "Download",
 			"name": "download",
 			"type": "boolean",
-			"description": "Determines if the HTTP resource will be downloaded",
+			"description": "Indicates that the resource has to be downloaded into a file instead of returning it in the response.",
 			"visibility": "config.overrideSettings",
 			"defaultValue": false,
 			"options": {
@@ -152,11 +152,21 @@
 			"label": "Download Sync",
 			"name": "downloadSync",
 			"type": "boolean",
-			"description": "Determines if the HTTP resource will be downloaded",
+			"description": "If true the method won't return until the file has been downloaded and it will return all the information of the file.",
 			"visibility": "config.overrideSettings",
 			"defaultValue": false,
 			"options": {
 				"allowContextSelector": "false"
+			}
+		},
+		{
+			"label": "File Name",
+			"name": "fileName",
+			"description": "If provided, the file will be stored with this name. If empty the file name will be calculated from the URL.",
+			"visibility": "config.overrideSettings",
+			"type": "text",
+			"options": {
+				"allowContextSelector": "true"
 			}
 		},
 		{

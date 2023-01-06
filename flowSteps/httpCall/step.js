@@ -31,6 +31,7 @@ step.httpCall = function (stepConfig) {
 		followRedirects : stepConfig.inputs.followRedirects,
 		forceDownload : stepConfig.inputs.download,
 		downloadSync : stepConfig.inputs.downloadSync,
+		fileName: stepConfig.inputs.fileName,
 		fullResponse : stepConfig.inputs.fullResponse,
 		connectionTimeout: stepConfig.inputs.connectionTimeout,
 		readTimeout: stepConfig.inputs.readTimeout
