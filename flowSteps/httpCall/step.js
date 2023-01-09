@@ -19,6 +19,12 @@
  */
 step.httpCall = function (stepConfig) {
 
+	var callbacks = '{';
+	callbacks += 'fileDownloaded: function(event, callbackData) {\n';
+	callbacks += '   ' + stepConfig.inputs.callbackCode + '\n';
+	callbacks += '}\n';
+	callbacks += '}\n';
+
 	var headers = isObject(stepConfig.inputs.headers) ? stepConfig.inputs.headers : stringToObject(stepConfig.inputs.headers)
 	var params = isObject(stepConfig.inputs.params) ? stepConfig.inputs.params : stringToObject(stepConfig.inputs.params)
 	var body = isObject(stepConfig.inputs.body) ? stepConfig.inputs.body : JSON.parse(stepConfig.inputs.body);
@@ -36,8 +42,6 @@ step.httpCall = function (stepConfig) {
 		connectionTimeout: stepConfig.inputs.connectionTimeout,
 		readTimeout: stepConfig.inputs.readTimeout
 	}
-
-	var callbacks = stepConfig.inputs.callbacks ? 'fileDownloaded:' + stepConfig.inputs.callbacks : stepConfig.inputs.callbacks;
 
 	switch (stepConfig.inputs.method) {
 		case 'get':
