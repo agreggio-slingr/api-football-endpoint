@@ -86,6 +86,16 @@
 			}
 		},
 		{
+			"label": "Requires callback",
+			"name": "requiresCallBack",
+			"type": "boolean",
+			"description": "If true it will return callback",
+			"defaultValue": false,
+			"options": {
+				"allowContextSelector": "false"
+			}
+		},
+		{
 			"label": "Callback data",
 			"name": "callbackData",
 			"type": "text",
@@ -104,16 +114,6 @@
 			"visibility": "config.requiresCallBack",
 			"options": {
 				"wrapCode": "false"
-			}
-		},
-		{
-			"label": "Callbacks",
-			"name": "callbacks",
-			"type": "text",
-			"description": "This is a map where you can listener for different callbacks",
-			"visibility": "config.requiresCallBack",
-			"options": {
-				"representation": "textArea"
 			}
 		},
 		{
