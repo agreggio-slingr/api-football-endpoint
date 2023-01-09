@@ -86,23 +86,24 @@
 			}
 		},
 		{
-			"label": "Requires callback",
-			"name": "requiresCallBack",
-			"type": "boolean",
-			"description": "If true it will return callback",
-			"defaultValue": false,
-			"options": {
-				"allowContextSelector": "false"
-			}
-		},
-		{
 			"label": "Callback data",
 			"name": "callbackData",
 			"type": "text",
 			"description": "This is an object you can send that you will get back when the callback is processed",
 			"visibility": "config.requiresCallBack",
 			"options": {
+				"representation": "textArea",
 				"allowContextSelector": "true"
+			}
+		},
+		{
+			"label": "Callback Code",
+			"name": "callbackCode",
+			"type": "script",
+			"description": "This is a map where you can listener for different callbacks",
+			"visibility": "config.requiresCallBack",
+			"options": {
+				"wrapCode": "false"
 			}
 		},
 		{
