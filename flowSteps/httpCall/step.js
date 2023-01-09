@@ -19,11 +19,8 @@
  */
 step.httpCall = function (stepConfig) {
 
-	var callbacks = '{';
-	callbacks += 'fileDownloaded: function(event, callbackData) {\n';
-	callbacks += '   ' + stepConfig.inputs.callbackCode + '\n';
-	callbacks += '};\n';
-	callbacks += '};\n';
+	sys.logs.debug('[apifootball] CallbackCode: ' + JSON.stringify(stepConfig.inputs.callbackCode));
+	sys.logs.debug('[apifootball] callbackData: ' + JSON.stringify(stepConfig.inputs.callbackData));
 
 	var headers = isObject(stepConfig.inputs.headers) ? stepConfig.inputs.headers : stringToObject(stepConfig.inputs.headers)
 	var params = isObject(stepConfig.inputs.params) ? stepConfig.inputs.params : stringToObject(stepConfig.inputs.params)
