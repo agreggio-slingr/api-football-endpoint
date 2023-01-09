@@ -37,25 +37,27 @@ step.httpCall = function (stepConfig) {
 		readTimeout: stepConfig.inputs.readTimeout
 	}
 
+	var callbacks = stepConfig.inputs.callbacks ? 'fileDownloaded:' + stepConfig.inputs.callbacks : stepConfig.inputs.callbacks;
+
 	switch (stepConfig.inputs.method) {
 		case 'get':
-			return endpoint._get(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+			return endpoint._get(options, stepConfig.inputs.callbackData, callbacks);
 		case 'post':
-			return endpoint._post(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+			return endpoint._post(options, stepConfig.inputs.callbackData, callbacks);
 		case 'delete':
-			return endpoint._delete(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+			return endpoint._delete(options, stepConfig.inputs.callbackData, callbacks);
 		case 'put':
-			return endpoint._put(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+			return endpoint._put(options, stepConfig.inputs.callbackData, callbacks);
 		case 'connect':
-			return endpoint._connect(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+			return endpoint._connect(options, stepConfig.inputs.callbackData, callbacks);
 		case 'head':
-			return endpoint._head(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+			return endpoint._head(options, stepConfig.inputs.callbackData, callbacks);
 		case 'options':
-			return endpoint._options(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+			return endpoint._options(options, stepConfig.inputs.callbackData, callbacks);
 		case 'patch':
-			return endpoint._patch(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+			return endpoint._patch(options, stepConfig.inputs.callbackData, callbacks);
 		case 'trace':
-			return endpoint._trace(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbacks);
+			return endpoint._trace(options, stepConfig.inputs.callbackData, callbacks);
 		default:
 			return null;
 	}

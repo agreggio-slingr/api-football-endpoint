@@ -98,22 +98,21 @@
 		{
 			"label": "Callback data",
 			"name": "callbackData",
-			"type": "json",
+			"type": "text",
 			"description": "This is an object you can send that you will get back when the callback is processed",
 			"visibility": "config.requiresCallBack",
 			"options": {
-				"allowContextSelector": "false"
+				"allowContextSelector": "true"
 			}
 		},
 		{
 			"label": "Callbacks",
 			"name": "callbacks",
-			"type": "script",
+			"type": "text",
 			"description": "This is a map where you can listener for different callbacks",
 			"visibility": "config.requiresCallBack",
 			"options": {
-				"allowContextSelector": "false",
-				"parameters": ["event","data"]
+				"representation": "textArea"
 			}
 		},
 		{
