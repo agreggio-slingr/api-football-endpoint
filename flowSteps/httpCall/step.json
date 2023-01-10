@@ -113,7 +113,7 @@
 			"description": "This is a map where you can listener for different callbacks",
 			"visibility": "config.requiresCallBack",
 			"options": {
-				"wrapCode": "false"
+				"parameters": ["event", "callbackData"]
 			}
 		},
 		{
