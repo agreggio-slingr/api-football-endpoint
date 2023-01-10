@@ -19,10 +19,6 @@
  */
 step.httpCall = function (stepConfig) {
 
-	sys.logs.debug(JSON.stringify(stepConfig.inputs.callbackCode ));
-	sys.logs.debug(JSON.stringify(stepConfig.inputs.callbackData ));
-	sys.logs.debug(JSON.stringify(stepConfig));
-
 
 	// var code = {
 	// 	fileDownloaded: new Function ('event', 'callbackData', stepConfig.inputs.callbackCode)
@@ -30,7 +26,7 @@ step.httpCall = function (stepConfig) {
 
 
 	var code = {
-		fileDownloaded: eval ("function(event, callbackData) {" + stepConfig.inputs.callbackCode + "}")
+		fileDownloaded: eval ("(function(event, callbackData) {" + stepConfig.inputs.callbackCode + "})")
 	};
 
 	sys.logs.debug(JSON.stringify(code));
