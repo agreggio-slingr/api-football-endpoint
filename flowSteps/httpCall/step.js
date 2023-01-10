@@ -29,6 +29,7 @@ step.httpCall = function (stepConfig) {
 		record:stepConfig.inputs.callbackData
 	}
 
+	sys.logs.debug(JSON.stringify(stepConfig));
 
 	var headers = isObject(stepConfig.inputs.headers) ? stepConfig.inputs.headers : stringToObject(stepConfig.inputs.headers)
 	var params = isObject(stepConfig.inputs.params) ? stepConfig.inputs.params : stringToObject(stepConfig.inputs.params)
