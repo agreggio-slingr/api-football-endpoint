@@ -59,7 +59,7 @@
 			"label": "URL",
 			"name": "url",
 			"description": "The URL to which this endpoint will send the request. Use curly brackets if you require path variables e.g.: https://app.slinger/user/{userId}",
-			"type": "urlParams",
+			"type": "text",
 			"required": "true"
 		},
 		{
