@@ -27,13 +27,11 @@ step.httpCall = function (stepConfig) {
 	code += 'fileDownloaded(context);\n';
 	var scriptResult = sys.utils.script.eval(code, stepConfig.context);
 
-	sys.logs.error(JSON.stringify(code));
+	sys.logs.error(JSON.stringify(scriptResult));
 
 	var callbackData = {
 		record:stepConfig.inputs.callbackData
 	}
-
-	sys.logs.error(JSON.stringify(callbackData));
 
 
 	var headers = isObject(stepConfig.inputs.headers) ? stepConfig.inputs.headers : stringToObject(stepConfig.inputs.headers)
