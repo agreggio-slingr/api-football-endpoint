@@ -19,11 +19,10 @@
  */
 step.httpCall = function (stepConfig) {
 
-	var code = {
-		fileDownloaded: function(event, callbackData) { stepConfig.inputs.callbackCode }
+	var fileDownloaded = { function(event, callbackData) { stepConfig.inputs.callbackCode }
 	};
 
-	sys.logs.debug(JSON.stringify(code));
+	sys.logs.debug(JSON.stringify(fileDownloaded));
 
 	var callbackData = {
 		record:stepConfig.inputs.callbackData
@@ -50,23 +49,23 @@ step.httpCall = function (stepConfig) {
 
 	switch (stepConfig.inputs.method) {
 		case 'get':
-			return endpoint._get(options, callbackData, code);
+			return endpoint._get(options, callbackData, fileDownloaded);
 		case 'post':
-			return endpoint._post(options, callbackData, code);
+			return endpoint._post(options, callbackData, fileDownloaded);
 		case 'delete':
-			return endpoint._delete(options, callbackData, code);
+			return endpoint._delete(options, callbackData, fileDownloaded);
 		case 'put':
-			return endpoint._put(options, callbackData, code);
+			return endpoint._put(options, callbackData, fileDownloaded);
 		case 'connect':
-			return endpoint._connect(options, callbackData, code);
+			return endpoint._connect(options, callbackData, fileDownloaded);
 		case 'head':
-			return endpoint._head(options, callbackData, code);
+			return endpoint._head(options, callbackData, fileDownloaded);
 		case 'options':
-			return endpoint._options(options, callbackData, code);
+			return endpoint._options(options, callbackData, fileDownloaded);
 		case 'patch':
-			return endpoint._patch(options, callbackData, code);
+			return endpoint._patch(options, callbackData, fileDownloaded);
 		case 'trace':
-			return endpoint._trace(options, callbackData, code);
+			return endpoint._trace(options, callbackData, fileDownloaded);
 		default:
 			return null;
 	}
