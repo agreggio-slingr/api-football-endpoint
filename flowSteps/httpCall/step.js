@@ -52,7 +52,7 @@ step.httpCall = function (stepConfig) {
 
 	switch (stepConfig.inputs.method) {
 		case 'get':
-			return endpoint._get(options, stepConfig.inputs.callbackData, stringToObject(code));
+			return endpoint._get(options, stepConfig.inputs.callbackData, code);
 		case 'post':
 			return endpoint._post(options, stepConfig.inputs.callbackData, code);
 		case 'delete':
