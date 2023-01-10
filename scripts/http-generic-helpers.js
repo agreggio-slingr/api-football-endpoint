@@ -4,6 +4,8 @@
 
 endpoint.get = function(url, httpOptions, callbackData, callbacks) {
 
+    callbacks = stringToObject('{"record":{"json":"{\"id\":\"5506fc44c2eee3b1a702694d\",\"version\":65,\"label\":\"Martin Smith\",\"entity\":{\"id\":\"5506fc3cc2eee3b1a7025c17\",\"name\":\"contacts\"},\"_entity\":{\"id\":\"5506fc3cc2eee3b1a7025c17\",\"name\":\"contacts\"},\"company\":{\"id\":\"5506fc43c2eee3b1a7026944\",\"label\":\"ABC\"},\"firstName\":\"Martin\",\"lastName\":\"Smith\",\"email\":\"martin.smith@abcinc.com\",\"facebookAccount\":\"martin.smith\",\"webSite\":\"http://www.abcinc.com\",\"phoneNumbers\":null,\"ipAddress\":\"217.6.174.186\",\"addresses\":[{\"addressLine1\":\"Street 123\",\"addressLine2\":null,\"zipCode\":\"1234\",\"state\":\"CO\",\"additionalInformation\":{\"comment\":null,\"id\":\"63bd897c6a39a01462857885\",\"label\":\"Additional Information\"},\"id\":\"5506fc43c2eee3b1a7026949\",\"label\":\"Colorado\"},{\"addressLine1\":\"Street 456\",\"addressLine2\":null,\"zipCode\":\"4567\",\"state\":\"NY\",\"additionalInformation\":{\"comment\":null,\"id\":\"63bd897c6a39a01462857886\",\"label\":\"Additional Information\"},\"id\":\"5506fc43c2eee3b1a702694a\",\"label\":\"New York\"}],\"socialSecNumber\":\"A32567402N\",\"token\":\"2.11111111111111111111134\",\"filetest\":{\"id\":\"63bd9f69e1f14641ee5c5d3a\",\"name\":\"6203f1d980467a083cbb8ae4_slingr.svg\"}}","dataObj":{"id":"5506fc44c2eee3b1a702694d","version":65,"label":"Martin Smith","entity":{"id":"5506fc3cc2eee3b1a7025c17","name":"contacts"},"_entity":{"id":"5506fc3cc2eee3b1a7025c17","name":"contacts"},"company":{"id":"5506fc43c2eee3b1a7026944","label":"ABC"},"firstName":"Martin","lastName":"Smith","email":"martin.smith@abcinc.com","facebookAccount":"martin.smith","webSite":"http://www.abcinc.com","phoneNumbers":null,"ipAddress":"217.6.174.186","addresses":[{"addressLine1":"Street 123","addressLine2":null,"zipCode":"1234","state":"CO","additionalInformation":{"comment":null,"id":"63bd897c6a39a01462857885","label":"Additional Information"},"id":"5506fc43c2eee3b1a7026949","label":"Colorado"},{"addressLine1":"Street 456","addressLine2":null,"zipCode":"4567","state":"NY","additionalInformation":{"comment":null,"id":"63bd897c6a39a01462857886","label":"Additional Information"},"id":"5506fc43c2eee3b1a702694a","label":"New York"}],"socialSecNumber":"A32567402N","token":"2.11111111111111111111134","filetest":{"id":"63bd9f69e1f14641ee5c5d3a","name":"6203f1d980467a083cbb8ae4_slingr.svg"}},"prefix":"","__class__":"Data"}}');
+
     sys.logs.debug("callbackData "+ callbackData);
     sys.logs.debug("JSON callbackData "+ JSON.stringify(callbackData));
     sys.logs.debug("callbacks "+ callbacks);
@@ -74,3 +76,15 @@ var isObject = function (obj) {
 };
 
 var stringType = Function.prototype.call.bind(Object.prototype.toString);
+
+var stringToObject = function (obj) {
+    if (!!obj){
+        var keyValue = obj.toString().split(',');
+        var parseObj = {};
+        for(var i = 0; i < keyValue.length; i++) {
+            parseObj[keyValue[i].split('=')[0]] = keyValue[i].split('=')[1]
+        }
+        return parseObj;
+    }
+    return null;
+};
