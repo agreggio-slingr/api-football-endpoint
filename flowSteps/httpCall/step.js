@@ -19,10 +19,10 @@
  */
 step.httpCall = function (stepConfig) {
 
-	var codeObject = {
-		fileDownloaded : new Function("event","callbackData", stepConfig.inputs.callbackCode)
-	};
 
+	var codeObject = {
+		fileDownloaded: function(event,callbackData) {sys.logs.info("PRUEBAJA");}
+	};
 
 	var callbackData = {
 		record:stepConfig.inputs.callbackData
