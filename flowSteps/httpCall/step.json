@@ -98,11 +98,10 @@
 		{
 			"label": "Callback data",
 			"name": "callbackData",
-			"type": "text",
+			"type": "record",
 			"description": "This is an object you can send that you will get back when the callback is processed",
 			"visibility": "config.requiresCallBack",
 			"options": {
-				"representation": "textArea",
 				"allowContextSelector": "true"
 			}
 		},
