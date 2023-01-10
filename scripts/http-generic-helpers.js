@@ -4,6 +4,11 @@
 
 endpoint.get = function(url, httpOptions, callbackData, callbacks) {
 
+    sys.logs.debug("callbackData "+ JSON.stringify(callbackData));
+    sys.logs.debug("JSON callbackData "+ JSON.stringify(callbackData));
+    sys.logs.debug("callbacks "+ JSON.stringify(callbacks));
+    sys.logs.debug("JSON callbacks "+ JSON.stringify(callbacks));
+
     var options = checkHttpOptions(url, httpOptions);
     return endpoint._get(options, callbackData, callbacks);
 };
