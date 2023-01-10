@@ -19,10 +19,16 @@
  */
 step.httpCall = function (stepConfig) {
 
-	var code = '{';
-	code += 'fileDownloaded: function(event, callbackData) { \n';
-	code += '   ' + stepConfig.inputs.callbackCode + '\n';
-	code += '}\n';
+	var code = {};
+	code.fileDownloaded = function(event, callbackData) {
+		sys.logs.info("Response: "+JSON.stringify(callbackData.record));
+		callbackData.record.field('filetest').val({
+		id: event.data.fileId,
+		name: event.data.fileName,
+		contentType: event.data.contentType
+		});
+		sys.data.save(callbackData.record)};
+
 
 	sys.logs.debug(JSON.stringify(code));
 
