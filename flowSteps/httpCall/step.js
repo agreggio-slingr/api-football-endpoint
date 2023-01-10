@@ -56,23 +56,23 @@ step.httpCall = function (stepConfig) {
 
 	switch (stepConfig.inputs.method) {
 		case 'get':
-			return endpoint._get(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._get(options, callbackData, code);
 		case 'post':
-			return endpoint._post(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._post(options, callbackData, code);
 		case 'delete':
-			return endpoint._delete(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._delete(options, callbackData, code);
 		case 'put':
-			return endpoint._put(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._put(options, callbackData, code);
 		case 'connect':
-			return endpoint._connect(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._connect(options, callbackData, code);
 		case 'head':
-			return endpoint._head(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._head(options, callbackData, code);
 		case 'options':
-			return endpoint._options(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._options(options, callbackData, code);
 		case 'patch':
-			return endpoint._patch(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._patch(options, callbackData, code);
 		case 'trace':
-			return endpoint._trace(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._trace(options, callbackData, code);
 		default:
 			return null;
 	}
