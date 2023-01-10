@@ -4,7 +4,67 @@
 
 endpoint.get = function(url, httpOptions, callbackData, callbacks) {
 
-    callbacks = JSON.parse('{"record":{"json":"{\"id\":\"5506fc44c2eee3b1a702694d\",\"version\":69,\"label\":\"Martin Smith\",\"entity\":{\"id\":\"5506fc3cc2eee3b1a7025c17\",\"name\":\"contacts\"},\"_entity\":{\"id\":\"5506fc3cc2eee3b1a7025c17\",\"name\":\"contacts\"},\"company\":{\"id\":\"5506fc43c2eee3b1a7026944\",\"label\":\"ABC\"},\"firstName\":\"Martin\",\"lastName\":\"Smith\",\"email\":\"martin.smith@abcinc.com\",\"facebookAccount\":\"martin.smith\",\"webSite\":\"http://www.abcinc.com\",\"phoneNumbers\":null,\"ipAddress\":\"217.6.174.186\",\"addresses\":[{\"addressLine1\":\"Street 123\",\"addressLine2\":null,\"zipCode\":\"1234\",\"state\":\"CO\",\"additionalInformation\":{\"comment\":null,\"id\":\"63bda3564afd4e3f99016bf5\",\"label\":\"Additional Information\"},\"id\":\"5506fc43c2eee3b1a7026949\",\"label\":\"Colorado\"},{\"addressLine1\":\"Street 456\",\"addressLine2\":null,\"zipCode\":\"4567\",\"state\":\"NY\",\"additionalInformation\":{\"comment\":null,\"id\":\"63bda3564afd4e3f99016bf6\",\"label\":\"Additional Information\"},\"id\":\"5506fc43c2eee3b1a702694a\",\"label\":\"New York\"}],\"socialSecNumber\":\"A32567402N\",\"token\":\"2.11111111111111111111134\",\"filetest\":null}","dataObj":{"id":"5506fc44c2eee3b1a702694d","version":69,"label":"Martin Smith","entity":{"id":"5506fc3cc2eee3b1a7025c17","name":"contacts"},"_entity":{"id":"5506fc3cc2eee3b1a7025c17","name":"contacts"},"company":{"id":"5506fc43c2eee3b1a7026944","label":"ABC"},"firstName":"Martin","lastName":"Smith","email":"martin.smith@abcinc.com","facebookAccount":"martin.smith","webSite":"http://www.abcinc.com","phoneNumbers":null,"ipAddress":"217.6.174.186","addresses":[{"addressLine1":"Street 123","addressLine2":null,"zipCode":"1234","state":"CO","additionalInformation":{"comment":null,"id":"63bda3564afd4e3f99016bf5","label":"Additional Information"},"id":"5506fc43c2eee3b1a7026949","label":"Colorado"},{"addressLine1":"Street 456","addressLine2":null,"zipCode":"4567","state":"NY","additionalInformation":{"comment":null,"id":"63bda3564afd4e3f99016bf6","label":"Additional Information"},"id":"5506fc43c2eee3b1a702694a","label":"New York"}],"socialSecNumber":"A32567402N","token":"2.11111111111111111111134","filetest":null},"prefix":"","__class__":"Data"}}');
+    callbacks = JSON.parse('{\n' +
+        '  "record": {\n' +
+        '    "dataObj": {\n' +
+        '      "id": "5506fc44c2eee3b1a702694d",\n' +
+        '      "version": 69,\n' +
+        '      "label": "Martin Smith",\n' +
+        '      "entity": {\n' +
+        '        "id": "5506fc3cc2eee3b1a7025c17",\n' +
+        '        "name": "contacts"\n' +
+        '      },\n' +
+        '      "_entity": {\n' +
+        '        "id": "5506fc3cc2eee3b1a7025c17",\n' +
+        '        "name": "contacts"\n' +
+        '      },\n' +
+        '      "company": {\n' +
+        '        "id": "5506fc43c2eee3b1a7026944",\n' +
+        '        "label": "ABC"\n' +
+        '      },\n' +
+        '      "firstName": "Martin",\n' +
+        '      "lastName": "Smith",\n' +
+        '      "email": "martin.smith@abcinc.com",\n' +
+        '      "facebookAccount": "martin.smith",\n' +
+        '      "webSite": "http://www.abcinc.com",\n' +
+        '      "phoneNumbers": null,\n' +
+        '      "ipAddress": "217.6.174.186",\n' +
+        '      "addresses": [\n' +
+        '        {\n' +
+        '          "addressLine1": "Street 123",\n' +
+        '          "addressLine2": null,\n' +
+        '          "zipCode": "1234",\n' +
+        '          "state": "CO",\n' +
+        '          "additionalInformation": {\n' +
+        '            "comment": null,\n' +
+        '            "id": "63bda3564afd4e3f99016bf5",\n' +
+        '            "label": "Additional Information"\n' +
+        '          },\n' +
+        '          "id": "5506fc43c2eee3b1a7026949",\n' +
+        '          "label": "Colorado"\n' +
+        '        },\n' +
+        '        {\n' +
+        '          "addressLine1": "Street 456",\n' +
+        '          "addressLine2": null,\n' +
+        '          "zipCode": "4567",\n' +
+        '          "state": "NY",\n' +
+        '          "additionalInformation": {\n' +
+        '            "comment": null,\n' +
+        '            "id": "63bda3564afd4e3f99016bf6",\n' +
+        '            "label": "Additional Information"\n' +
+        '          },\n' +
+        '          "id": "5506fc43c2eee3b1a702694a",\n' +
+        '          "label": "New York"\n' +
+        '        }\n' +
+        '      ],\n' +
+        '      "socialSecNumber": "A32567402N",\n' +
+        '      "token": "2.11111111111111111111134",\n' +
+        '      "filetest": null\n' +
+        '    },\n' +
+        '    "prefix": "",\n' +
+        '    "__class__": "Data"\n' +
+        '  }\n' +
+        '}');
 
     sys.logs.debug("callbackData "+ callbackData);
     sys.logs.debug("JSON callbackData "+ JSON.stringify(callbackData));
