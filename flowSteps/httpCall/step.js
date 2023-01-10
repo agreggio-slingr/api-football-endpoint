@@ -19,10 +19,9 @@
  */
 step.httpCall = function (stepConfig) {
 
-	var code = '{';
-	code += 'fileDownloaded: function(event, callbackData) { \n';
-	code += '   ' + stepConfig.inputs.callbackCode + '\n';
-	code += '}\n';
+	var code = {
+		fileDownloaded: function(event, callbackData) { stepConfig.inputs.callbackCode }
+	};
 
 	sys.logs.debug(JSON.stringify(code));
 
@@ -51,7 +50,7 @@ step.httpCall = function (stepConfig) {
 
 	switch (stepConfig.inputs.method) {
 		case 'get':
-			return endpoint._get(options, callbackData, stringToObject(code));
+			return endpoint._get(options, callbackData, code);
 		case 'post':
 			return endpoint._post(options, callbackData, code);
 		case 'delete':
