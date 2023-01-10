@@ -21,7 +21,9 @@ step.httpCall = function (stepConfig) {
 
 	var code = '{';
 	code += 'fileDownloaded:' + stepConfig.inputs.callbackCode + '\n';
-	code += '};\n';
+	code += '}\n';
+
+	sys.logs.debug(JSON.stringify(code));
 
 	var headers = isObject(stepConfig.inputs.headers) ? stepConfig.inputs.headers : stringToObject(stepConfig.inputs.headers)
 	var params = isObject(stepConfig.inputs.params) ? stepConfig.inputs.params : stringToObject(stepConfig.inputs.params)
