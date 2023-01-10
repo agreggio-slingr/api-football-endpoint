@@ -19,16 +19,10 @@
  */
 step.httpCall = function (stepConfig) {
 
-	var code = {};
-	code.fileDownloaded = function(event, callbackData) {
-		sys.logs.info("Response: "+JSON.stringify(callbackData.record));
-		callbackData.record.field('filetest').val({
-		id: event.data.fileId,
-		name: event.data.fileName,
-		contentType: event.data.contentType
-		});
-		sys.data.save(callbackData.record)};
-
+	var code = '{';
+	code += 'fileDownloaded: function(event, callbackData) { \n';
+	code += '   ' + stepConfig.inputs.callbackCode + '\n';
+	code += '}\n';
 
 	sys.logs.debug(JSON.stringify(code));
 
@@ -52,7 +46,7 @@ step.httpCall = function (stepConfig) {
 
 	switch (stepConfig.inputs.method) {
 		case 'get':
-			return endpoint._get(options, stepConfig.inputs.callbackData, code);
+			return endpoint._get(options, stepConfig.inputs.callbackData, stringToObject(code));
 		case 'post':
 			return endpoint._post(options, stepConfig.inputs.callbackData, code);
 		case 'delete':
