@@ -19,8 +19,9 @@
  */
 step.httpCall = function (stepConfig) {
 
-	sys.logs.debug('[apifootball] CallbackCode: ' + JSON.stringify(stepConfig.inputs.callbackCode));
-	sys.logs.debug('[apifootball] callbackData: ' + JSON.stringify(stepConfig.inputs.callbackData));
+	var code = '{';
+	code += 'fileDownloaded:' + stepConfig.inputs.callbackCode + '\n';
+	code += '};\n';
 
 	var headers = isObject(stepConfig.inputs.headers) ? stepConfig.inputs.headers : stringToObject(stepConfig.inputs.headers)
 	var params = isObject(stepConfig.inputs.params) ? stepConfig.inputs.params : stringToObject(stepConfig.inputs.params)
@@ -42,23 +43,23 @@ step.httpCall = function (stepConfig) {
 
 	switch (stepConfig.inputs.method) {
 		case 'get':
-			return endpoint._get(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._get(options, stepConfig.inputs.callbackData, code);
 		case 'post':
-			return endpoint._post(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._post(options, stepConfig.inputs.callbackData, code);
 		case 'delete':
-			return endpoint._delete(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._delete(options, stepConfig.inputs.callbackData, code);
 		case 'put':
-			return endpoint._put(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._put(options, stepConfig.inputs.callbackData, code);
 		case 'connect':
-			return endpoint._connect(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._connect(options, stepConfig.inputs.callbackData, code);
 		case 'head':
-			return endpoint._head(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._head(options, stepConfig.inputs.callbackData, code);
 		case 'options':
-			return endpoint._options(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._options(options, stepConfig.inputs.callbackData, code);
 		case 'patch':
-			return endpoint._patch(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._patch(options, stepConfig.inputs.callbackData, code);
 		case 'trace':
-			return endpoint._trace(options, stepConfig.inputs.callbackData, stepConfig.inputs.callbackCode);
+			return endpoint._trace(options, stepConfig.inputs.callbackData, code);
 		default:
 			return null;
 	}
