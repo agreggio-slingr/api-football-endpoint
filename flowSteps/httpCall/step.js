@@ -20,22 +20,22 @@
 step.httpCall = function (stepConfig) {
 
 
-	// var code = {
-	// 	fileDownloaded: new Function ('event', 'callbackData', stepConfig.inputs.callbackCode)
-	// }
-
-
 	var code = {
-		fileDownloaded: eval ("(function(event, callbackData) {" + stepConfig.inputs.callbackCode + "})")
-	};
+		fileDownloaded: Function ('event', 'callbackData', stepConfig.inputs.callbackCode)
+	}
 
-	sys.logs.debug(JSON.stringify(code));
+
+	// var code = {
+	// 	fileDownloaded: eval ("(function(event, callbackData) {" + stepConfig.inputs.callbackCode + "})")
+	// };
+
+	sys.logs.error(JSON.stringify(code));
 
 	var callbackData = {
 		record:stepConfig.inputs.callbackData
 	}
 
-	sys.logs.debug(JSON.stringify(callbackData));
+	sys.logs.error(JSON.stringify(callbackData));
 
 
 	var headers = isObject(stepConfig.inputs.headers) ? stepConfig.inputs.headers : stringToObject(stepConfig.inputs.headers)
