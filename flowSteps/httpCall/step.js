@@ -24,8 +24,8 @@ step.httpCall = function (stepConfig) {
 	sys.logs.debug(JSON.stringify(stepConfig));
 
 	var code = {
-		fileDownloaded: function(event, callbackData) { stepConfig.inputs.callbackCode }
-	};
+		fileDownloaded: new Function ('event', 'callbackData', stepConfig.inputs.callbackCode)
+	}
 
 	sys.logs.debug(JSON.stringify(code));
 
