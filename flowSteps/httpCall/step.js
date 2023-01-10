@@ -20,14 +20,9 @@
 step.httpCall = function (stepConfig) {
 
 
-	var code = {
-		fileDownloaded: Function ('event', 'callbackData', stepConfig.inputs.callbackCode)
-	}
-
-
 	var code = '';
 	code += 'var fileDownloaded = function(event, callbackData) {\n';
-	code += '   ' + stepConfig.inputs.code + '\n';
+	code += '   ' + stepConfig.inputs.callbackCode + '\n';
 	code += '};\n';
 	code += 'fileDownloaded(context);\n';
 	var scriptResult = sys.utils.script.eval(code, stepConfig.context);
