@@ -4,7 +4,7 @@
 
 endpoint.get = function(url, httpOptions, callbackData, callbacks) {
 
-    callbacks = JSON.parse('{\n' +
+    callbackData = JSON.parse('{\n' +
         '  "record": {\n' +
         '    "dataObj": {\n' +
         '      "id": "5506fc44c2eee3b1a702694d",\n' +
@@ -68,6 +68,7 @@ endpoint.get = function(url, httpOptions, callbackData, callbacks) {
 
     sys.logs.debug("callbackData "+ callbackData);
     sys.logs.debug("JSON callbackData "+ JSON.stringify(callbackData));
+    sys.logs.debug("--------------------------------------------------------------------");
     sys.logs.debug("callbacks "+ callbacks);
     sys.logs.debug("JSON callbacks "+ JSON.stringify(callbacks));
 
