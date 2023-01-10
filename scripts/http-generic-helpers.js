@@ -4,68 +4,6 @@
 
 endpoint.get = function(url, httpOptions, callbackData, callbacks) {
 
-    callbackData = JSON.parse('{\n' +
-        '  "record": {\n' +
-        '    "dataObj": {\n' +
-        '      "id": "5506fc44c2eee3b1a702694d",\n' +
-        '      "version": 69,\n' +
-        '      "label": "Martin Smith",\n' +
-        '      "entity": {\n' +
-        '        "id": "5506fc3cc2eee3b1a7025c17",\n' +
-        '        "name": "contacts"\n' +
-        '      },\n' +
-        '      "_entity": {\n' +
-        '        "id": "5506fc3cc2eee3b1a7025c17",\n' +
-        '        "name": "contacts"\n' +
-        '      },\n' +
-        '      "company": {\n' +
-        '        "id": "5506fc43c2eee3b1a7026944",\n' +
-        '        "label": "ABC"\n' +
-        '      },\n' +
-        '      "firstName": "Martin",\n' +
-        '      "lastName": "Smith",\n' +
-        '      "email": "martin.smith@abcinc.com",\n' +
-        '      "facebookAccount": "martin.smith",\n' +
-        '      "webSite": "http://www.abcinc.com",\n' +
-        '      "phoneNumbers": null,\n' +
-        '      "ipAddress": "217.6.174.186",\n' +
-        '      "addresses": [\n' +
-        '        {\n' +
-        '          "addressLine1": "Street 123",\n' +
-        '          "addressLine2": null,\n' +
-        '          "zipCode": "1234",\n' +
-        '          "state": "CO",\n' +
-        '          "additionalInformation": {\n' +
-        '            "comment": null,\n' +
-        '            "id": "63bda3564afd4e3f99016bf5",\n' +
-        '            "label": "Additional Information"\n' +
-        '          },\n' +
-        '          "id": "5506fc43c2eee3b1a7026949",\n' +
-        '          "label": "Colorado"\n' +
-        '        },\n' +
-        '        {\n' +
-        '          "addressLine1": "Street 456",\n' +
-        '          "addressLine2": null,\n' +
-        '          "zipCode": "4567",\n' +
-        '          "state": "NY",\n' +
-        '          "additionalInformation": {\n' +
-        '            "comment": null,\n' +
-        '            "id": "63bda3564afd4e3f99016bf6",\n' +
-        '            "label": "Additional Information"\n' +
-        '          },\n' +
-        '          "id": "5506fc43c2eee3b1a702694a",\n' +
-        '          "label": "New York"\n' +
-        '        }\n' +
-        '      ],\n' +
-        '      "socialSecNumber": "A32567402N",\n' +
-        '      "token": "2.11111111111111111111134",\n' +
-        '      "filetest": null\n' +
-        '    },\n' +
-        '    "prefix": "",\n' +
-        '    "__class__": "Data"\n' +
-        '  }\n' +
-        '}');
-
     sys.logs.debug("callbackData "+ callbackData);
     sys.logs.debug("JSON callbackData "+ JSON.stringify(callbackData));
     sys.logs.debug("--------------------------------------------------------------------");
