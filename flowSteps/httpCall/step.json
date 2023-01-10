@@ -98,7 +98,7 @@
 		{
 			"label": "Callback data",
 			"name": "callbackData",
-			"type": "record",
+			"type": "text",
 			"description": "This is an object you can send that you will get back when the callback is processed",
 			"visibility": "config.requiresCallBack",
 			"options": {
