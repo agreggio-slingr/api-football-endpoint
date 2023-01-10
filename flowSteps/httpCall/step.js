@@ -26,6 +26,11 @@ step.httpCall = function (stepConfig) {
 
 	sys.logs.debug(JSON.stringify(code));
 
+	var callbackData = {
+		record:stepConfig.inputs.callbackData
+	}
+
+
 	var headers = isObject(stepConfig.inputs.headers) ? stepConfig.inputs.headers : stringToObject(stepConfig.inputs.headers)
 	var params = isObject(stepConfig.inputs.params) ? stepConfig.inputs.params : stringToObject(stepConfig.inputs.params)
 	var body = isObject(stepConfig.inputs.body) ? stepConfig.inputs.body : JSON.parse(stepConfig.inputs.body);
@@ -46,23 +51,23 @@ step.httpCall = function (stepConfig) {
 
 	switch (stepConfig.inputs.method) {
 		case 'get':
-			return endpoint._get(options, stepConfig.inputs.callbackData, stringToObject(code));
+			return endpoint._get(options, callbackData, stringToObject(code));
 		case 'post':
-			return endpoint._post(options, stepConfig.inputs.callbackData, code);
+			return endpoint._post(options, callbackData, code);
 		case 'delete':
-			return endpoint._delete(options, stepConfig.inputs.callbackData, code);
+			return endpoint._delete(options, callbackData, code);
 		case 'put':
-			return endpoint._put(options, stepConfig.inputs.callbackData, code);
+			return endpoint._put(options, callbackData, code);
 		case 'connect':
-			return endpoint._connect(options, stepConfig.inputs.callbackData, code);
+			return endpoint._connect(options, callbackData, code);
 		case 'head':
-			return endpoint._head(options, stepConfig.inputs.callbackData, code);
+			return endpoint._head(options, callbackData, code);
 		case 'options':
-			return endpoint._options(options, stepConfig.inputs.callbackData, code);
+			return endpoint._options(options, callbackData, code);
 		case 'patch':
-			return endpoint._patch(options, stepConfig.inputs.callbackData, code);
+			return endpoint._patch(options, callbackData, code);
 		case 'trace':
-			return endpoint._trace(options, stepConfig.inputs.callbackData, code);
+			return endpoint._trace(options, callbackData, code);
 		default:
 			return null;
 	}
